@@ -13,7 +13,7 @@ export default function Page() {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
+        setErrorMsg('위치기반 설정이 꺼져있습니다.');
         return;
       }
       let location = await Location.getCurrentPositionAsync({});

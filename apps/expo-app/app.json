@@ -12,7 +12,10 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Tripot은 위치정보가 필요한 서비스 입니다."
+      }
     },
     "scheme": "your-app-scheme",
     "android": {
