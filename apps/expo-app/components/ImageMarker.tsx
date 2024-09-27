@@ -1,16 +1,27 @@
+import { LocationObjectCoords } from 'expo-location';
+import { Marker } from 'react-native-maps';
 import styled from 'styled-components/native';
 
-const ImageMarker = ({ uri }: { uri: string }) => {
+type CoordinateType = Pick<LocationObjectCoords, 'latitude' | 'longitude'>;
+
+interface ImageMarkerState {
+  coordinate: CoordinateType;
+  uri: string;
+}
+
+const ImageMarker = ({ coordinate, uri }: ImageMarkerState) => {
   return (
-    <Marker>
-      <MarkerImage source={{ uri }} resizeMode="cover" />
+    <Marker coordinate={coordinate}>
+      <StyledMarker>
+        <MarkerImage source={{ uri }} resizeMode="cover" />
+      </StyledMarker>
     </Marker>
   );
 };
 
 export default ImageMarker;
 
-const Marker = styled.View`
+const StyledMarker = styled.View`
   width: 67px;
   height: 67px;
   border-radius: 6px;
