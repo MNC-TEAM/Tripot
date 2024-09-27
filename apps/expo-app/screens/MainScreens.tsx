@@ -1,11 +1,6 @@
 import styled from 'styled-components/native';
 import MapView from 'react-native-maps';
-import { LocationObject } from 'expo-location';
 import ImageMarker from '../components/ImageMarker';
-
-interface MainScreensState {
-  location: LocationObject | null;
-}
 
 const MainScreens = ({ location }: MainScreensState) => {
   return (

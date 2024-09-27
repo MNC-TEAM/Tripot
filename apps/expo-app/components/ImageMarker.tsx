@@ -1,13 +1,5 @@
-import { LocationObjectCoords } from 'expo-location';
 import { Marker } from 'react-native-maps';
 import styled from 'styled-components/native';
-
-type CoordinateType = Pick<LocationObjectCoords, 'latitude' | 'longitude'>;
-
-interface ImageMarkerState {
-  coordinate: CoordinateType;
-  uri: string;
-}
 
 const ImageMarker = ({ coordinate, uri }: ImageMarkerState) => {
   return (
