@@ -9,6 +9,7 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'error',
+    'import/order': 'off', // import/order 규칙 비활성화
   },
   overrides: [
     {
