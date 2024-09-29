@@ -1,8 +1,7 @@
-import styled from 'styled-components/native';
 import MapView from 'react-native-maps';
+import styled from 'styled-components/native';
+
 import ImageMarker from '../components/ImageMarker';
-import { Link } from 'expo-router';
-import Modal from './modal';
 
 const MainScreens = ({ location }: MainScreensState) => {
   const markers = [
