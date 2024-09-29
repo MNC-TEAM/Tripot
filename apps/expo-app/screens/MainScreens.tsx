@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 import MapView from 'react-native-maps';
 import ImageMarker from '../components/ImageMarker';
+import { Link } from 'expo-router';
+import Modal from './modal';
 
 const MainScreens = ({ location }: MainScreensState) => {
   const markers = [
@@ -26,14 +28,16 @@ const MainScreens = ({ location }: MainScreensState) => {
 
   return (
     <MapContainer>
-      <MapContainer>
-        <StyledMapView>
-          {location &&
-            markers.map((marker) => (
-              <ImageMarker coordinate={marker.coordinate} uri={marker.uri} />
-            ))}
-        </StyledMapView>
-      </MapContainer>
+      <StyledMapView>
+        {location &&
+          markers.map((marker, index) => (
+            <ImageMarker
+              key={index}
+              coordinate={marker.coordinate}
+              uri={marker.uri}
+            />
+          ))}
+      </StyledMapView>
     </MapContainer>
   );
 };

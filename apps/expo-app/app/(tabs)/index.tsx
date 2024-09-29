@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
 import * as Location from 'expo-location';
-import MainScreens from '../screens/MainScreens';
+import MainScreens from '../../screens/MainScreens';
 
-export default function Page() {
+const IndexPage = () => {
   const [location, setLocation] = useState<Location.LocationObject | null>(
     null,
   );
@@ -21,5 +21,7 @@ export default function Page() {
     })();
   }, []);
 
-  return <MainScreens location={location} />;
-}
+  return location && <MainScreens location={location} />;
+};
+
+export default IndexPage;
