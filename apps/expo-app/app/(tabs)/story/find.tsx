@@ -1,11 +1,7 @@
-import { View, Text } from 'react-native';
+import FindScreens from '@screens/FindScreens';
 
 const FindPage = () => {
-  return (
-    <View>
-      <Text>find</Text>
-    </View>
-  );
+  return <FindScreens />;
 };
 
 export default FindPage;
