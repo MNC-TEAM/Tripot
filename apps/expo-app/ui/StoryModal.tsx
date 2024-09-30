@@ -1,10 +1,11 @@
-import { FlatList, Pressable, ViewStyle } from 'react-native';
+import { FlatList, Pressable, View, ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 import { BottomSheetModal, BottomSheetView } from '@gorhom/bottom-sheet';
 import { BlurView } from 'expo-blur';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
-import StoryCard from '@components/story/StoryCard';
+import StoryCard from '@ui/story/StoryCard';
+import DATA from '@common/DATA';
 
 const StoryModal = ({ bottomSheetModalRef }: StoryModalState) => {
   return (
@@ -35,19 +36,22 @@ const StoryModal = ({ bottomSheetModalRef }: StoryModalState) => {
           </TagContainer>
         </HorizonScrollView>
 
-        <FlatList
-          data={DATA}
-          renderItem={({ item }) => (
-            <StoryCard
-              tag={item.tag}
-              title={item.title}
-              desc={item.desc}
-              date={item.date}
-              uri="https://picsum.photos/200"
-            />
-          )}
-          keyExtractor={(item) => item.id}
-        />
+        <StoryCardContainer>
+          <FlatList
+            data={DATA}
+            renderItem={({ item }) => (
+              <StoryCard
+                tag={item.tag}
+                title={item.title}
+                desc={item.desc}
+                date={item.date}
+                uri={item.uri}
+              />
+            )}
+            keyExtractor={(item) => item.id}
+            ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
+          />
+        </StoryCardContainer>
       </ModalContainer>
     </BottomSheetModal>
   );
@@ -59,29 +63,10 @@ interface StoryModalState {
   bottomSheetModalRef: React.RefObject<BottomSheetModalMethods>;
 }
 
-const DATA = [
-  {
-    id: '0',
-    tag: '전주',
-    title: '한옥마을 체험기',
-    desc: '내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다.내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다.',
-    date: '2024.1.1',
-  },
-  {
-    id: '1',
-    tag: '전주1',
-    title: '한옥마을 체험기',
-    desc: '내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다.내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다.',
-    date: '2024.1.1',
-  },
-  {
-    id: '2',
-    tag: '전주2',
-    title: '한옥마을 체험기',
-    desc: '내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다.내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다.',
-    date: '2024.1.1',
-  },
-];
+const StoryCardContainer = styled.View`
+  margin-top: 22px;
+  padding: 0 24px;
+`;
 
 const handleStyle: ViewStyle = {
   paddingTop: 12,

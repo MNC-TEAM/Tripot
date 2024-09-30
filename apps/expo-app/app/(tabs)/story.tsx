@@ -1,11 +1,7 @@
-import { View, Text } from 'react-native';
+import StoryScreens from '@screens/StoryScreens';
 
 const StoryPage = () => {
-  return (
-    <View>
-      <Text>story</Text>
-    </View>
-  );
+  return <StoryScreens />;
 };
 
 export default StoryPage;
