@@ -16,6 +16,7 @@ const IndexPage = () => {
         return;
       }
       const location = await Location.getCurrentPositionAsync({});
+
       setLocation(location);
     })();
   }, []);

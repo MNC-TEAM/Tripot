@@ -1,11 +1,11 @@
 import { View, Text } from 'react-native';
 
-const UserPage = () => {
+const FindPage = () => {
   return (
     <View>
-      <Text>user</Text>
+      <Text>find</Text>
     </View>
   );
 };
 
-export default UserPage;
+export default FindPage;
