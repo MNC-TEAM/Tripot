@@ -1,8 +1,12 @@
 import MapView from 'react-native-maps';
 import styled from 'styled-components/native';
-
-import ImageMarker from '../components/ImageMarker';
-import StoryModal from '../ui/StoryModal';
+import {
+  BottomSheetModal,
+  BottomSheetModalProvider,
+} from '@gorhom/bottom-sheet';
+import { useCallback, useRef } from 'react';
+import ImageMarker from '@components/ImageMarker';
+import StoryModal from '@ui/StoryModal';
 
 const MainScreens = ({ location }: MainScreensState) => {
   const markers = [
@@ -26,13 +30,20 @@ const MainScreens = ({ location }: MainScreensState) => {
     },
   ];
 
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
+
   return (
-    <>
+    <BottomSheetModalProvider>
       <MapContainer>
         <StyledMapView>
           {location &&
             markers.map((marker, index) => (
               <ImageMarker
+                onPress={handlePresentModalPress}
                 key={index}
                 coordinate={marker.coordinate}
                 uri={marker.uri}
@@ -40,8 +51,8 @@ const MainScreens = ({ location }: MainScreensState) => {
             ))}
         </StyledMapView>
       </MapContainer>
-      <StoryModal />
-    </>
+      <StoryModal bottomSheetModalRef={bottomSheetModalRef} />
+    </BottomSheetModalProvider>
   );
 };
 

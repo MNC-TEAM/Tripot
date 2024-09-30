@@ -1,41 +1,23 @@
-import { Pressable } from 'react-native';
+import { FlatList, Pressable, ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
-import StoryCard from '../components/story/StoryCard';
-import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
-import { useCallback, useRef } from 'react';
+import { BottomSheetModal, BottomSheetView } from '@gorhom/bottom-sheet';
 import { BlurView } from 'expo-blur';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
+import StoryCard from '@components/story/StoryCard';
 
-const StoryModal = () => {
-  const bottomSheetRef = useRef<BottomSheet>(null);
-
-  const handleSheetChanges = useCallback((index: number) => {}, []);
-
+const StoryModal = ({
+  bottomSheetModalRef,
+}: {
+  bottomSheetModalRef: React.RefObject<BottomSheetModalMethods>;
+}) => {
   return (
-    <BottomSheet
-      ref={bottomSheetRef}
-      onChange={handleSheetChanges}
-      handleStyle={{
-        paddingTop: 12,
-        paddingBottom: 0,
-      }}
-      handleIndicatorStyle={{
-        width: 70,
-        height: 7,
-        backgroundColor: '#fff',
-      }}
+    <BottomSheetModal
+      ref={bottomSheetModalRef}
+      handleStyle={handleStyle}
+      handleIndicatorStyle={handleIndicatorStyle}
       backgroundComponent={({ style }) => (
-        <BlurView
-          style={[
-            style,
-            {
-              borderTopLeftRadius: 34,
-              borderTopRightRadius: 34,
-              overflow: 'hidden',
-            },
-          ]}
-          intensity={50}
-        />
+        <BlurViewStyled style={style} intensity={50} />
       )}
     >
       <ModalContainer>
@@ -57,18 +39,66 @@ const StoryModal = () => {
           </TagContainer>
         </HorizonScrollView>
 
-        <StoryCard
-          tag="전주"
-          title="한옥마을 체험기"
-          desc="내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다.내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다."
-          date="2024.1.1"
+        <FlatList
+          data={DATA}
+          renderItem={({ item }) => (
+            <StoryCard
+              tag={item.tag}
+              title={item.title}
+              desc={item.desc}
+              date={item.date}
+              uri={'https://picsum.photos/200'}
+            />
+          )}
+          keyExtractor={(item) => item.id}
         />
       </ModalContainer>
-    </BottomSheet>
+    </BottomSheetModal>
   );
 };
 
 export default StoryModal;
+
+const DATA = [
+  {
+    id: '0',
+    tag: '전주',
+    title: '한옥마을 체험기',
+    desc: '내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다.내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다.',
+    date: '2024.1.1',
+  },
+  {
+    id: '1',
+    tag: '전주1',
+    title: '한옥마을 체험기',
+    desc: '내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다.내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다.',
+    date: '2024.1.1',
+  },
+  {
+    id: '2',
+    tag: '전주2',
+    title: '한옥마을 체험기',
+    desc: '내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다.내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다.',
+    date: '2024.1.1',
+  },
+];
+
+const handleStyle: ViewStyle = {
+  paddingTop: 12,
+  paddingBottom: 0,
+};
+
+const handleIndicatorStyle: ViewStyle = {
+  width: 70,
+  height: 7,
+  backgroundColor: '#fff',
+};
+
+const BlurViewStyled = styled(BlurView)`
+  overflow: hidden;
+  border-top-left-radius: 34px;
+  border-top-right-radius: 34px;
+`;
 
 const ModalContainer = styled(BottomSheetView)`
   padding: 25px 0;

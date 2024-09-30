@@ -1,17 +1,10 @@
 import styled from 'styled-components/native';
 
-interface StoryCardState {
-  tag: string;
-  title: string;
-  desc: string;
-  date: string;
-}
-
-const StoryCard = ({ tag, title, desc, date }: StoryCardState) => {
+const StoryCard = ({ tag, title, desc, date, uri }: StoryCardState) => {
   return (
     <StoryCardContainer>
       <StoryCardStyled>
-        <StoryCardImg source={{ uri: 'https://picsum.photos/200' }} />
+        <StoryCardImg source={{ uri }} />
         <StoryCardTitleView>
           <StoryCardTitle>
             <StoryCardTitleTagStyle>
@@ -30,6 +23,14 @@ const StoryCard = ({ tag, title, desc, date }: StoryCardState) => {
 };
 
 export default StoryCard;
+
+interface StoryCardState {
+  tag: string;
+  title: string;
+  desc: string;
+  date: string;
+  uri: string;
+}
 
 const StoryCardContainer = styled.View`
   margin-top: 22px;
