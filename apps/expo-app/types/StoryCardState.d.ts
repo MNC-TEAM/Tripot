@@ -10,3 +10,5 @@ type PopularityCardState = Pick<
   StoryCardState,
   'date' | 'tag' | 'title' | 'uri'
 >;
+
+type NowStoryCardState = Pick<StoryCardState, 'tag' | 'title' | 'uri'>;

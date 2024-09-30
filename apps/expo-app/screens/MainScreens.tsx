@@ -6,7 +6,7 @@ import {
 } from '@gorhom/bottom-sheet';
 import { useCallback, useRef } from 'react';
 import ImageMarker from '@components/ImageMarker';
-import StoryModal from '@ui/StoryModal';
+import StoryModal from '@ui/story/StoryModal';
 
 const MainScreens = ({ location }: MainScreensState) => {
   const markers = [

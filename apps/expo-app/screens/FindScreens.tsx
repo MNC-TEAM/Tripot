@@ -1,15 +1,8 @@
-import {
-  Text,
-  SafeAreaView,
-  View,
-  ImageBackground,
-  ScrollView,
-  FlatList,
-} from 'react-native';
+import { Text, SafeAreaView, View, ScrollView, FlatList } from 'react-native';
 import styled from 'styled-components/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import LocationTag from '@components/LocationTag';
 import DATA from '@common/DATA';
+import NowStoryCard from '@ui/story/find/NowStoryCard';
 
 const FindScreens = () => {
   return (
@@ -79,20 +72,9 @@ const FindScreens = () => {
         horizontal
         data={DATA}
         contentContainerStyle={{ paddingHorizontal: 24 }}
-        renderItem={({ item }) => (
-          <NowStoryView>
-            <ImageBackground>
-              <NowStoryImage />
-            </ImageBackground>
-            <NowStoryTextView>
-              <LocationTag>단양</LocationTag>
-              <NowStoryText numberOfLines={1} ellipsizeMode="tail">
-                단풍구단풍구
-              </NowStoryText>
-            </NowStoryTextView>
-          </NowStoryView>
-        )}
+        renderItem={({ item }) => <NowStoryCard {...item} />}
         ItemSeparatorComponent={() => <View style={{ width: 6 }} />}
+        keyExtractor={(item) => item.id}
       />
     </SafeAreaView>
   );
@@ -175,36 +157,4 @@ const Heading = styled.Text`
   font-weight: 600;
   color: #fff;
   margin-top: 37px;
-`;
-
-const NowStoryView = styled.View`
-  width: 138px;
-  height: 160px;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.24);
-  align-items: center;
-  justify-content: center;
-  padding: 12px 13px;
-`;
-
-const NowStoryImage = styled.View`
-  width: 113px;
-  height: 102px;
-  border-radius: 8px;
-  background: #000;
-`;
-
-const NowStoryTextView = styled.View`
-  flex-direction: row;
-  align-items: center;
-  margin-top: 8px;
-  gap: 8px;
-  width: 100%;
-`;
-
-const NowStoryText = styled.Text`
-  font-size: 16px;
-  color: #fff;
-  font-weight: 600;
-  flex: 1;
 `;

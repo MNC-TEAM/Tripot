@@ -4,8 +4,8 @@ import { BottomSheetModal, BottomSheetView } from '@gorhom/bottom-sheet';
 import { BlurView } from 'expo-blur';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
-import StoryCard from '@ui/story/StoryCard';
 import DATA from '@common/DATA';
+import StoryCard from './StoryCard';
 
 const StoryModal = ({ bottomSheetModalRef }: StoryModalState) => {
   return (
