@@ -17,7 +17,7 @@ const PopularityCard = ({ tag, title, date, uri }: PopularityCardState) => {
 export default PopularityCard;
 
 const PopularityCardStyle = styled.Pressable`
-  width: 342;
+  width: 342px;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 12px;
   padding: 10px 14px;

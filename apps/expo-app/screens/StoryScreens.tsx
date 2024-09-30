@@ -1,12 +1,28 @@
 import DATA from '@common/DATA';
 import PopularityCard from '@ui/story/PopularityCard';
 import StoryCard from '@ui/story/StoryCard';
-import { SafeAreaView, FlatList, View } from 'react-native';
+import { SafeAreaView, FlatList, View, Pressable } from 'react-native';
 import styled from 'styled-components/native';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { useRouter } from 'expo-router';
 
 const StoryScreens = () => {
+  const router = useRouter();
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ backgroundColor: '#acf', flex: 1 }}>
+      <Wrapper>
+        <HeaderStyled>
+          <HeaderLogo>Tripot</HeaderLogo>
+          <Pressable
+            onPress={() => {
+              router.push('/story/find');
+            }}
+          >
+            <Ionicons name="search" size={26} color="white" />
+          </Pressable>
+        </HeaderStyled>
+      </Wrapper>
       <Columns>
         <View>
           <Wrapper>
@@ -86,9 +102,21 @@ const StoryScreens = () => {
 
 export default StoryScreens;
 
+const HeaderStyled = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 12px;
+`;
+
+const HeaderLogo = styled.Text`
+  font-size: 18px;
+  color: #fff;
+`;
+
 const Columns = styled.View`
   flex-direction: column;
   gap: 27px;
+  margin-top: 26px;
 `;
 
 const Wrapper = styled.View`
@@ -98,4 +126,5 @@ const Wrapper = styled.View`
 const Heading = styled.Text`
   font-size: 18px;
   font-weight: 600;
+  color: #fff;
 `;
