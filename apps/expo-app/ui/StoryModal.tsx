@@ -6,11 +6,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import StoryCard from '@components/story/StoryCard';
 
-const StoryModal = ({
-  bottomSheetModalRef,
-}: {
-  bottomSheetModalRef: React.RefObject<BottomSheetModalMethods>;
-}) => {
+const StoryModal = ({ bottomSheetModalRef }: StoryModalState) => {
   return (
     <BottomSheetModal
       ref={bottomSheetModalRef}
@@ -47,7 +43,7 @@ const StoryModal = ({
               title={item.title}
               desc={item.desc}
               date={item.date}
-              uri={'https://picsum.photos/200'}
+              uri="https://picsum.photos/200"
             />
           )}
           keyExtractor={(item) => item.id}
@@ -58,6 +54,10 @@ const StoryModal = ({
 };
 
 export default StoryModal;
+
+interface StoryModalState {
+  bottomSheetModalRef: React.RefObject<BottomSheetModalMethods>;
+}
 
 const DATA = [
   {
