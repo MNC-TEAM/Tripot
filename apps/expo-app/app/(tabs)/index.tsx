@@ -1,7 +1,6 @@
+import MainScreens from '@screens/MainScreens';
 import * as Location from 'expo-location';
 import { useEffect, useState } from 'react';
-
-import MainScreens from '../../screens/MainScreens';
 
 const IndexPage = () => {
   const [location, setLocation] = useState<Location.LocationObject | null>(

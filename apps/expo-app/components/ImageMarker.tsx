@@ -1,9 +1,9 @@
 import { Marker } from 'react-native-maps';
 import styled from 'styled-components/native';
 
-const ImageMarker = ({ coordinate, uri }: ImageMarkerState) => {
+const ImageMarker = ({ coordinate, uri, onPress }: ImageMarkerState) => {
   return (
-    <Marker coordinate={coordinate}>
+    <Marker coordinate={coordinate} onPress={onPress}>
       <StyledMarker>
         <MarkerImage source={{ uri }} resizeMode="cover" />
       </StyledMarker>
