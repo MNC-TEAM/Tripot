@@ -43,12 +43,6 @@ const PopularityTitle = styled.Text`
   font-weight: 600;
 `;
 
-const PopularityTag = styled.View`
-  padding: 6px 12px;
-  border-radius: 1000px;
-  background: rgba(0, 0, 0, 0.45);
-`;
-
 const PopularityDesc = styled.Text`
   font-weight: 500;
   font-size: 12px;
