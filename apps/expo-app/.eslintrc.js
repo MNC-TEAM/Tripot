@@ -1,4 +1,3 @@
-// https://docs.expo.dev/guides/using-eslint/
 module.exports = {
   extends: [
     'expo',
@@ -23,4 +22,10 @@ module.exports = {
       },
     },
   ],
+  parserOptions: {
+    project: './tsconfig.json',
+    sourceType: 'module',
+    // eslint-disable-next-line no-undef
+    tsconfigRootDir: __dirname,
+  },
 };

@@ -91,6 +91,7 @@ const InputStyle = styled.TextInput`
   margin-left: 6px;
   margin-top: 8px;
 `;
+*/
 
 const ButtonStyle = styled.Pressable`
   margin-top: auto;
