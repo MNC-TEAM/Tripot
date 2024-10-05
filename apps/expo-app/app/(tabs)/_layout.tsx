@@ -25,7 +25,7 @@ const TabLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
           tabBarIcon: ({ color }) => (
             <FontAwesome size={20} name="home" color={color} />
