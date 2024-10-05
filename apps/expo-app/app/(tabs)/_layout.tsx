@@ -1,6 +1,6 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 import { ViewStyle } from 'react-native';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const TabLayout = () => {
   return (
@@ -16,10 +16,10 @@ const TabLayout = () => {
       }}
     >
       <Tabs.Screen
-        name="user"
+        name="mypage"
         options={{
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={20} name="home" color={color} />
+            <Ionicons name="person" size={20} color={color} />
           ),
           headerShown: false,
         }}
@@ -28,7 +28,7 @@ const TabLayout = () => {
         name="home"
         options={{
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={20} name="home" color={color} />
+            <Ionicons name="map-outline" size={20} color={color} />
           ),
           headerShown: false,
         }}
@@ -37,7 +37,7 @@ const TabLayout = () => {
         name="story"
         options={{
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={20} name="home" color={color} />
+            <Ionicons name="document-text" size={20} color={color} />
           ),
           headerShown: false,
         }}
