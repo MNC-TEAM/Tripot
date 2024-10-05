@@ -6,7 +6,7 @@ import NowStoryCard from '@ui/story/find/NowStoryCard';
 
 const FindScreens = () => {
   return (
-    <SafeAreaView style={{ backgroundColor: '#cbb2b2', flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <Wrapper>
         <Title>검색하기</Title>
 
