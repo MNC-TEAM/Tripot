@@ -42,8 +42,8 @@ const MypageScreens = () => {
         </ListViews>
 
         <CommunityBox>
-          <CommunityText href={''}>공지사항</CommunityText>
-          <CommunityText href={''}>고객센터</CommunityText>
+          <CommunityText href="/">공지사항</CommunityText>
+          <CommunityText href="/">고객센터</CommunityText>
         </CommunityBox>
       </Wrapper>
     </SafeAreaViewStyle>
