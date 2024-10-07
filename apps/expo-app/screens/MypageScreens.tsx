@@ -1,7 +1,7 @@
-import styled from 'styled-components/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { ImageBackground } from 'react-native';
 import { Link } from 'expo-router';
+import styled from 'styled-components/native';
 
 const MypageScreens = () => {
   return (
@@ -14,7 +14,7 @@ const MypageScreens = () => {
 
         <UserBox>
           <UserIcon>
-            <ImageBackground></ImageBackground>
+            <ImageBackground />
           </UserIcon>
           <UserEditBox>
             <UserName>닉네임</UserName>
@@ -42,8 +42,8 @@ const MypageScreens = () => {
         </ListViews>
 
         <CommunityBox>
-          <CommunityText href={''}>공지사항</CommunityText>
-          <CommunityText href={''}>고객센터</CommunityText>
+          <CommunityText href="/">공지사항</CommunityText>
+          <CommunityText href="/">고객센터</CommunityText>
         </CommunityBox>
       </Wrapper>
     </SafeAreaViewStyle>

@@ -10,7 +10,7 @@ const StoryScreens = () => {
   const router = useRouter();
 
   return (
-    <SafeAreaView style={{ backgroundColor: '#acf', flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <Wrapper>
         <HeaderStyled>
           <HeaderLogo>Tripot</HeaderLogo>

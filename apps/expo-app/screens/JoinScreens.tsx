@@ -84,13 +84,14 @@ const InputStyle = styled.TextInput`
   flex: 1;
 `;
 
-const InputDesc = styled.Text`
+/* const InputDesc = styled.Text`
   font-size: 13px;
   font-weight: 500;
   color: #5f9cff;
   margin-left: 6px;
   margin-top: 8px;
 `;
+*/
 
 const ButtonStyle = styled.Pressable`
   margin-top: auto;
