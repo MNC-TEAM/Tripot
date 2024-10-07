@@ -23,27 +23,33 @@ const MypageScreens = () => {
         </UserBox>
 
         <ListViews>
-          <ListViewTextBox>
-            <Ionicons name="map" size={24} color="white" />
-            <ListViewText>내가 쓴 스토리</ListViewText>
-          </ListViewTextBox>
-          <ListViewTextBox>
-            <Ionicons
-              name="chatbubble-ellipses-outline"
-              size={24}
-              color="white"
-            />
-            <ListViewText>내가 쓴 댓글</ListViewText>
-          </ListViewTextBox>
-          <ListViewTextBox>
-            <Ionicons name="heart-outline" size={24} color="white" />
-            <ListViewText>하트 누른 목록</ListViewText>
-          </ListViewTextBox>
+          <Link href="/mypage/story">
+            <ListViewTextBox>
+              <Ionicons name="map" size={24} color="white" />
+              <ListViewText>내가 쓴 스토리</ListViewText>
+            </ListViewTextBox>
+          </Link>
+          <Link href="/mypage/comment">
+            <ListViewTextBox>
+              <Ionicons
+                name="chatbubble-ellipses-outline"
+                size={24}
+                color="white"
+              />
+              <ListViewText>내가 쓴 댓글</ListViewText>
+            </ListViewTextBox>
+          </Link>
+          <Link href="/mypage/like">
+            <ListViewTextBox>
+              <Ionicons name="heart-outline" size={24} color="white" />
+              <ListViewText>하트 누른 목록</ListViewText>
+            </ListViewTextBox>
+          </Link>
         </ListViews>
 
         <CommunityBox>
-          <CommunityText href="/">공지사항</CommunityText>
-          <CommunityText href="/">고객센터</CommunityText>
+          <CommunityText href="/mypage/notice">공지사항</CommunityText>
+          <CommunityText href="/mypage/cs">고객센터</CommunityText>
         </CommunityBox>
       </Wrapper>
     </SafeAreaViewStyle>

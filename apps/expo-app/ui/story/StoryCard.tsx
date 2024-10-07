@@ -27,7 +27,6 @@ const StoryCardStyled = styled.Pressable`
   padding: 10px;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 12px;
-  width: 342px;
 `;
 
 const StoryCardImg = styled.Image`
