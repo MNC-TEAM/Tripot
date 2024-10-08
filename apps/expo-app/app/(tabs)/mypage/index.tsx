@@ -1,4 +1,4 @@
-import MypageScreens from '@screens/MypageScreens';
+import MypageScreens from '@/screens/mypage/MypageScreens';
 
 const Mypage = () => {
   return <MypageScreens />;

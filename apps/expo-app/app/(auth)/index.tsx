@@ -1,4 +1,4 @@
-import LoginScreens from '@screens/LoginScreens';
+import LoginScreens from '@/screens/LoginScreens';
 
 const IndexPage = () => {
   return <LoginScreens />;

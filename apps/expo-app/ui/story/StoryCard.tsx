@@ -1,4 +1,4 @@
-import LocationTag from '@components/LocationTag';
+import LocationTag from '@/components/LocationTag';
 import styled from 'styled-components/native';
 
 const StoryCard = ({ tag, title, desc, date, uri }: StoryCardState) => {
@@ -24,10 +24,9 @@ export default StoryCard;
 const StoryCardStyled = styled.Pressable`
   flex-direction: row;
   gap: 13px;
-  padding: 10px;
+  padding: 16px 24px;
   background: rgba(0, 0, 0, 0.5);
-  border-radius: 12px;
-  width: 342px;
+  /* border-radius: 12px; */
 `;
 
 const StoryCardImg = styled.Image`
@@ -62,7 +61,7 @@ const StoryCardDesc = styled.Text`
 `;
 
 const StoryCardDate = styled.Text`
-  color: #fff;
+  color: rgba(255, 255, 255, 0.56);
   text-align: right;
   margin-top: 15px;
   font-size: 12px;

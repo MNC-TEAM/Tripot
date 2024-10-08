@@ -1,4 +1,4 @@
-import LoginBtn from '@components/Auth/LoginBtn';
+import LoginBtn from '@/components/Auth/LoginBtn';
 import { Image } from 'react-native';
 import styled from 'styled-components/native';
 
@@ -6,7 +6,7 @@ const LoginScreens = () => {
   return (
     <LoginView>
       <LogoView>
-        <Image source={require('@assets/Logo.png')} />
+        <Image source={require('@/assets/Logo.png')} />
       </LogoView>
       <ButtonView>
         <LoginBtn type="kakao" />

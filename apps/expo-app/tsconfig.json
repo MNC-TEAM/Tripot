@@ -3,13 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@app/*": ["./app/*"],
-      "@components/*": ["./components/*"],
-      "@assets/*": ["./assets/*"],
-      "@screens/*": ["./screens/*"],
-      "@types/*": ["./types/*"],
-      "@ui/*": ["./ui/*"],
-      "@common/*": ["./common/*"]
+      "@/*": ["./*"]
     }
-  }
+  },
+  "exclude": [".eslintrc.js"]
 }

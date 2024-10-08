@@ -1,10 +1,10 @@
-import DATA from '@common/DATA';
-import PopularityCard from '@ui/story/PopularityCard';
-import StoryCard from '@ui/story/StoryCard';
 import { SafeAreaView, FlatList, View, Pressable } from 'react-native';
 import styled from 'styled-components/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
+import DATA from '@/common/DATA';
+import StoryCard from '@/ui/story/StoryCard';
+import PopularityCard from '@/ui/story/PopularityCard';
 
 const StoryScreens = () => {
   const router = useRouter();

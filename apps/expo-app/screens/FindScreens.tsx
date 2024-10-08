@@ -1,8 +1,8 @@
 import { Text, SafeAreaView, View, ScrollView, FlatList } from 'react-native';
 import styled from 'styled-components/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import DATA from '@common/DATA';
-import NowStoryCard from '@ui/story/find/NowStoryCard';
+import DATA from '@/common/DATA';
+import NowStoryCard from '@/ui/story/find/NowStoryCard';
 
 const FindScreens = () => {
   return (
