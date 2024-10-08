@@ -46,6 +46,7 @@ const CS = styled.View`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  align-items: center;
 `;
 
 const CSTitle = styled.Text`
