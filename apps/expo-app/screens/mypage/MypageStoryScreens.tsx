@@ -1,13 +1,12 @@
+import StoryCard from '@/ui/story/StoryCard';
 import styled from 'styled-components/native';
-import StoryCard from '@ui/story/StoryCard';
 
 const StoryPageScreens = () => {
   return (
     <Wrapper
       contentContainerStyle={{
         alignItems: 'center',
-        paddingVertical: 30,
-        gap: 10,
+        paddingVertical: 14,
       }}
     >
       {Array(100)
@@ -15,10 +14,10 @@ const StoryPageScreens = () => {
         .map((_, index) => (
           <StoryCard
             key={index + 1}
-            tag="태그"
-            title="제목1"
-            desc="내용"
-            date="2020.00.00"
+            tag="전주"
+            title="한옥마을 체험기🌽"
+            desc="내용입니다.  내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다. 내용입니다."
+            date="2024.1.1"
             uri="/"
           />
         ))}
@@ -29,6 +28,5 @@ const StoryPageScreens = () => {
 export default StoryPageScreens;
 
 const Wrapper = styled.ScrollView`
-  padding: 0 24px;
   flex: 1;
 `;

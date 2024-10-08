@@ -1,4 +1,4 @@
-import NoticeScreens from '@screens/mypage/NoticeScreens';
+import NoticeScreens from '@/screens/mypage/NoticeScreens';
 
 const NoticePage = () => {
   return <NoticeScreens />;

@@ -1,4 +1,4 @@
-import LoginBtn from '@components/Auth/LoginBtn';
+import LoginBtn from '@/components/Auth/LoginBtn';
 import { Image } from 'react-native';
 import styled from 'styled-components/native';
 

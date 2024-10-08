@@ -1,4 +1,4 @@
-import LikeScreens from '@screens/mypage/LikeScreens';
+import LikeScreens from '@/screens/mypage/LikeScreens';
 
 const LikePage = () => {
   return <LikeScreens />;

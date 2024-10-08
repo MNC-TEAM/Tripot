@@ -1,4 +1,4 @@
-import StoryPageScreens from '@screens/mypage/MypageStoryScreens';
+import StoryPageScreens from '@/screens/mypage/MypageStoryScreens';
 
 const MypageStoryPage = () => {
   return <StoryPageScreens />;

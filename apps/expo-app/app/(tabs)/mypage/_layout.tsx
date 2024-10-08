@@ -1,32 +1,45 @@
 import { Stack } from 'expo-router';
-import { Text, View } from 'react-native';
+import { SafeAreaView, Text, View } from 'react-native';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const MyPageLayout = () => {
   return (
     <Stack
       screenOptions={{
-        header: ({ navigation, route, options, back }) => {
-          return (
+        contentStyle: { backgroundColor: '#000' },
+        headerStyle: { backgroundColor: '#222' },
+        header: ({ navigation, options }) => (
+          <SafeAreaView style={options.headerStyle}>
             <View
-              style={{
-                height: 70,
-                backgroundColor: '#2b2b2b',
-              }}
+              style={[
+                {
+                  height: 60,
+                  justifyContent: 'flex-end',
+                  paddingHorizontal: 24,
+                  paddingBottom: 20,
+                },
+              ]}
             >
               <View
                 style={{
-                  flex: 1,
+                  flexDirection: 'row',
                   alignItems: 'center',
-                  backgroundColor: '#000',
+                  gap: 14,
                 }}
               >
-                <Text style={{ color: '#fff' }}>{options.headerBackTitle}</Text>
+                <Ionicons
+                  onPress={navigation.goBack}
+                  name="chevron-back"
+                  size={32}
+                  color="white"
+                />
+                <Text style={{ color: '#fff', fontWeight: 600, fontSize: 20 }}>
+                  {options.headerBackTitle}
+                </Text>
               </View>
             </View>
-          );
-        },
-        contentStyle: { backgroundColor: '#191919' },
-        headerStyle: { backgroundColor: '#2b2b2b' },
+          </SafeAreaView>
+        ),
         headerTitle: '',
         headerTintColor: '#fff',
         headerBackTitleStyle: { fontSize: 20 },

@@ -1,18 +1,15 @@
-import React from 'react';
 import styled from 'styled-components/native';
 
 const CommentScreens = () => {
   return (
     <ScrollViewStyled
       contentContainerStyle={{
-        gap: 9,
         alignItems: 'center',
-        paddingVertical: 24,
       }}
     >
       {Array(100)
         .fill(0)
-        .map((item, index) => (
+        .map((_, index) => (
           <CommentView key={index + 1}>
             <Desc>댓글 내용입니다</Desc>
             <BottomBox>
@@ -29,14 +26,12 @@ export default CommentScreens;
 
 const ScrollViewStyled = styled.ScrollView`
   flex: 1;
-  padding: 0 24px;
 `;
 
 const CommentView = styled.View`
-  background: #000;
   width: 100%;
-  padding: 13px 16px;
-  border-radius: 12px;
+  padding: 19px 24px;
+  background: #000;
 `;
 
 const Desc = styled.Text`
@@ -52,10 +47,10 @@ const BottomBox = styled.View`
 
 const Title = styled.Text`
   color: rgba(255, 255, 255, 0.56);
-  font-size: 13px;
+  font-size: 14px;
 `;
 
 const Date = styled.Text`
   color: rgba(255, 255, 255, 0.56);
-  font-size: 13px;
+  font-size: 12px;
 `;

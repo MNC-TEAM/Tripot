@@ -7,7 +7,6 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "eslint .",
     "format": "prettier --write ."
   },
   "dependencies": {
@@ -31,9 +30,7 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/react": "~18.2.45",
-    "eslint": "^8.57.0",
-    "eslint-config-expo": "^7.1.2",
-    "eslint-config-universe": "^13.0.0",
+    "prettier": "^3.3.3",
     "typescript": "^5.4.5"
   },
   "private": true

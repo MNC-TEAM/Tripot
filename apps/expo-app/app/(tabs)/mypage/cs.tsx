@@ -1,4 +1,4 @@
-import CSScreens from '@screens/mypage/CSScreens';
+import CSScreens from '@/screens/mypage/CSScreens';
 
 const CSPage = () => {
   return <CSScreens />;

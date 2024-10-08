@@ -1,4 +1,4 @@
-import JoinScreens from '@screens/JoinScreens';
+import JoinScreens from '@/screens/JoinScreens';
 
 const JoinPage = () => {
   return <JoinScreens />;

@@ -18,7 +18,7 @@ interface LocationTagState {
 const TagStyle = styled.View`
   padding: 6px 12px;
   border-radius: 1000px;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(119, 119, 119, 0.45);
 `;
 
 const Tag = styled.Text`
