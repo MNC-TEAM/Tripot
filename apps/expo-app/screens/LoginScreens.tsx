@@ -6,7 +6,7 @@ const LoginScreens = () => {
   return (
     <LoginView>
       <LogoView>
-        <Image source={require('@assets/Logo.png')} />
+        <Image source={require('@/assets/Logo.png')} />
       </LogoView>
       <ButtonView>
         <LoginBtn type="kakao" />

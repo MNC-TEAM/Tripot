@@ -1,4 +1,4 @@
-import LocationTag from '@components/LocationTag';
+import LocationTag from '@/components/LocationTag';
 import styled from 'styled-components/native';
 
 const PopularityCard = ({ tag, title, date, uri }: PopularityCardState) => {

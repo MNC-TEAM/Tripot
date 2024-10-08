@@ -6,7 +6,7 @@ const OverlayBackground = ({ children }: { children: ReactNode }) => {
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground
-        source={require('@assets/story_background.jpg')}
+        source={require('@/assets/story_background.jpg')}
         resizeMode="cover"
         style={{ flex: 1 }}
       >
