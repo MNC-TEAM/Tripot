@@ -1,4 +1,4 @@
-import LocationTag from '@/components/LocationTag';
+import LocationTag from '@/ui/LocationTag';
 import styled from 'styled-components/native';
 
 const StoryCard = ({ tag, title, desc, date, uri }: StoryCardState) => {
@@ -6,10 +6,10 @@ const StoryCard = ({ tag, title, desc, date, uri }: StoryCardState) => {
     <StoryCardStyled>
       <StoryCardImg source={{ uri }} />
       <StoryCardTitleView>
-        <StoryCardTitle>
+        <Title>
           <LocationTag>{tag}</LocationTag>
-          <StoryCardTitleDesc>{title}</StoryCardTitleDesc>
-        </StoryCardTitle>
+          <TitleDesc>{title}</TitleDesc>
+        </Title>
         <StoryCardDesc numberOfLines={2} ellipsizeMode="tail">
           {desc}
         </StoryCardDesc>
@@ -40,13 +40,13 @@ const StoryCardTitleView = styled.View`
   flex: 1;
 `;
 
-const StoryCardTitle = styled.View`
+const Title = styled.View`
   flex-direction: row;
   gap: 7px;
   align-items: center;
 `;
 
-const StoryCardTitleDesc = styled.Text`
+const TitleDesc = styled.Text`
   font-size: 16px;
   color: #fff;
   font-weight: 600;

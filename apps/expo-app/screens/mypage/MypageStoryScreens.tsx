@@ -1,4 +1,4 @@
-import StoryCard from '@/ui/story/StoryCard';
+import StoryCard from '@/ui/StoryCard';
 import styled from 'styled-components/native';
 
 const StoryPageScreens = () => {

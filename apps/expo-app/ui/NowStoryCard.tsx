@@ -1,4 +1,4 @@
-import LocationTag from '@/components/LocationTag';
+import LocationTag from '@/ui/LocationTag';
 import styled from 'styled-components/native';
 
 const NowStoryCard = ({ tag, title, uri }: NowStoryCardState) => {

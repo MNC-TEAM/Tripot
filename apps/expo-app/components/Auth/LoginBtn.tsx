@@ -24,7 +24,7 @@ interface LoginBtnState {
 const ButtonStyle = styled.Pressable<LoginBtnState>`
   width: 193px;
   height: 53px;
-  background: ${(props) => {
+  background: ${props => {
     if (props.type === 'kakao') {
       return '#f9e000';
     }
@@ -51,7 +51,7 @@ const ButtonIcon = styled.View`
 
 const ButtonText = styled.Text<LoginBtnState>`
   font-size: 16px;
-  color: ${(props) => {
+  color: ${props => {
     if (props.type === 'kakao') {
       return '#000';
     }
