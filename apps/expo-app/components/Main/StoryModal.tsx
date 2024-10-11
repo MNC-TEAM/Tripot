@@ -2,10 +2,10 @@ import { FlatList, Pressable, View, ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 import { BottomSheetModal, BottomSheetView } from '@gorhom/bottom-sheet';
 import { BlurView } from 'expo-blur';
-import Ionicons from '@expo/vector-icons/Ionicons';
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import DATA from '@/common/DATA';
 import StoryCard from '@/ui/StoryCard';
+import SearchSVG from '@/assets/icon/search.svg';
 
 const StoryModal = ({ bottomSheetModalRef }: StoryModalState) => {
   return (
@@ -14,14 +14,14 @@ const StoryModal = ({ bottomSheetModalRef }: StoryModalState) => {
       handleStyle={handleStyle}
       handleIndicatorStyle={handleIndicatorStyle}
       backgroundComponent={({ style }) => (
-        <BlurViewStyled style={style} intensity={50} />
+        <BlurViewStyled style={style} intensity={70} />
       )}
     >
       <ModalContainer>
         <TitleContainer>
           <TitleStyle>My all stories (23)</TitleStyle>
           <Pressable>
-            <Ionicons name="search" size={26} color="white" />
+            <SearchSVG width={24} />
           </Pressable>
         </TitleContainer>
 
@@ -41,6 +41,7 @@ const StoryModal = ({ bottomSheetModalRef }: StoryModalState) => {
             data={DATA}
             renderItem={({ item }) => (
               <StoryCard
+                main
                 tag={item.tag}
                 title={item.title}
                 desc={item.desc}

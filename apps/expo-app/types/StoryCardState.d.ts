@@ -4,6 +4,7 @@ interface StoryCardState {
   desc: string;
   date: string;
   uri: string;
+  main?: boolean;
 }
 
 type PopularityCardState = Pick<

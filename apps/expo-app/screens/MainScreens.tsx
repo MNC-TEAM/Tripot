@@ -7,6 +7,7 @@ import {
 import { useCallback, useRef } from 'react';
 import ImageMarker from '@/components/Main/ImageMarker';
 import StoryModal from '@/components/Main/StoryModal';
+import AlertSVG from '@/assets/icon/alert.svg';
 
 const MainScreens = ({ location }: MainScreensState) => {
   const markers = [
@@ -40,6 +41,9 @@ const MainScreens = ({ location }: MainScreensState) => {
   return (
     <BottomSheetModalProvider>
       <MapContainer>
+        <AlertBtn>
+          <AlertSVG width={24} />
+        </AlertBtn>
         <StyledMapView>
           {location &&
             markers.map((marker, index) => (
@@ -62,7 +66,15 @@ export default MainScreens;
 
 const MapContainer = styled.View`
   flex: 1;
+  position: relative;
 `;
 const StyledMapView = styled(MapView)`
   flex: 1;
+`;
+
+const AlertBtn = styled.Pressable`
+  position: absolute;
+  right: 24px;
+  top: 62px;
+  z-index: 2;
 `;
