@@ -5,7 +5,7 @@ import { BlurView } from 'expo-blur';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import DATA from '@/common/DATA';
-import StoryCard from './StoryCard';
+import StoryCard from '@/ui/StoryCard';
 
 const StoryModal = ({ bottomSheetModalRef }: StoryModalState) => {
   return (
@@ -48,7 +48,7 @@ const StoryModal = ({ bottomSheetModalRef }: StoryModalState) => {
                 uri={item.uri}
               />
             )}
-            keyExtractor={(item) => item.id}
+            keyExtractor={item => item.id}
             ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
           />
         </StoryCardContainer>
@@ -110,7 +110,7 @@ const TagContainer = styled.Pressable<{ isLast?: boolean }>`
   padding: 8px 13.5px;
   background: rgba(0, 0, 0, 0.45);
   border-radius: 1000px;
-  margin-right: ${(props) => (props.isLast ? '0px' : '5px')};
+  margin-right: ${props => (props.isLast ? '0px' : '5px')};
 `;
 
 const TagText = styled.Text`

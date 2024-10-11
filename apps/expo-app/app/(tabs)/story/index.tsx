@@ -1,5 +1,5 @@
 import StoryScreens from '@/screens/StoryScreens';
-import OverlayBackground from '@/ui/story/OverlayBackground';
+import OverlayBackground from '@/ui/OverlayBackground';
 
 const StoryPage = () => {
   return (

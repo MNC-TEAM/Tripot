@@ -1,4 +1,4 @@
-import StoryCard from '@/ui/story/StoryCard';
+import StoryCard from '@/ui/StoryCard';
 import React from 'react';
 import styled from 'styled-components/native';
 

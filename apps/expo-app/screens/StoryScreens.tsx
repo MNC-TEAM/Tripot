@@ -3,8 +3,8 @@ import styled from 'styled-components/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
 import DATA from '@/common/DATA';
-import StoryCard from '@/ui/story/StoryCard';
-import PopularityCard from '@/ui/story/PopularityCard';
+import PopularityCard from '@/ui/PopularityCard';
+import StoryCard from '@/ui/StoryCard';
 
 const StoryScreens = () => {
   const router = useRouter();
@@ -44,7 +44,7 @@ const StoryScreens = () => {
               />
             )}
             horizontal
-            keyExtractor={(item) => item.id}
+            keyExtractor={item => item.id}
             ItemSeparatorComponent={() => <View style={{ width: 7 }} />}
           />
         </View>
@@ -68,7 +68,7 @@ const StoryScreens = () => {
               />
             )}
             horizontal
-            keyExtractor={(item) => item.id}
+            keyExtractor={item => item.id}
             ItemSeparatorComponent={() => <View style={{ width: 7 }} />}
           />
         </View>
@@ -91,7 +91,7 @@ const StoryScreens = () => {
               />
             )}
             horizontal
-            keyExtractor={(item) => item.id}
+            keyExtractor={item => item.id}
             ItemSeparatorComponent={() => <View style={{ width: 7 }} />}
           />
         </View>

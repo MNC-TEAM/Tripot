@@ -2,7 +2,7 @@ import { Text, SafeAreaView, View, ScrollView, FlatList } from 'react-native';
 import styled from 'styled-components/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import DATA from '@/common/DATA';
-import NowStoryCard from '@/ui/story/find/NowStoryCard';
+import NowStoryCard from '@/ui/NowStoryCard';
 
 const FindScreens = () => {
   return (
@@ -74,7 +74,7 @@ const FindScreens = () => {
         contentContainerStyle={{ paddingHorizontal: 24 }}
         renderItem={({ item }) => <NowStoryCard {...item} />}
         ItemSeparatorComponent={() => <View style={{ width: 6 }} />}
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
       />
     </SafeAreaView>
   );
