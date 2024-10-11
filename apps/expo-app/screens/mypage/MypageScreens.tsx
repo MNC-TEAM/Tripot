@@ -1,47 +1,46 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { ImageBackground } from 'react-native';
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import styled from 'styled-components/native';
+import EditSVG from '@/assets/icon/edit.svg';
+import MainSVG from '@/assets/icon/main.svg';
+import CommentSVG from '@/assets/icon/comment.svg';
+import HeartSVG from '@/assets/icon/heart.svg';
+import SettingSVG from '@/assets/icon/setting.svg';
 
 const MypageScreens = () => {
+  const router = useRouter();
+
   return (
     <SafeAreaViewStyle>
       <Wrapper>
         <TitleBox>
           <TitleBoxText>마이페이지</TitleBoxText>
-          <Ionicons name="settings-sharp" size={24} color="white" />
+          <SettingSVG width={24} />
         </TitleBox>
 
         <UserBox>
-          <UserIcon>
-            <ImageBackground />
-          </UserIcon>
-          <UserEditBox>
+          <UserIcon source={require('@/assets/simbol.png')} />
+          <UserEditBox onPress={() => router.push('/mypage/change')}>
             <UserName>닉네임</UserName>
-            <Ionicons name="pencil-outline" size={24} color="white" />
+            <EditSVG width={24} />
           </UserEditBox>
         </UserBox>
 
         <ListViews>
           <Link href="/mypage/story">
             <ListViewTextBox>
-              <Ionicons name="map" size={24} color="white" />
+              <MainSVG width={23} />
               <ListViewText>내가 쓴 스토리</ListViewText>
             </ListViewTextBox>
           </Link>
           <Link href="/mypage/comment">
             <ListViewTextBox>
-              <Ionicons
-                name="chatbubble-ellipses-outline"
-                size={24}
-                color="white"
-              />
+              <CommentSVG width={23} />
               <ListViewText>내가 쓴 댓글</ListViewText>
             </ListViewTextBox>
           </Link>
           <Link href="/mypage/like">
             <ListViewTextBox>
-              <Ionicons name="heart-outline" size={24} color="white" />
+              <HeartSVG width={23} />
               <ListViewText>하트 누른 목록</ListViewText>
             </ListViewTextBox>
           </Link>
@@ -81,52 +80,52 @@ const TitleBoxText = styled.Text`
 `;
 
 const ListViews = styled.View`
-  margin-top: 45px;
-  gap: 25px;
+  margin-top: 41px;
+  gap: 18px;
 `;
 
 const ListViewTextBox = styled.View`
   align-items: center;
   flex-direction: row;
-  gap: 10px;
+  gap: 11px;
 `;
 
 const ListViewText = styled.Text`
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
 `;
 
 const UserBox = styled.View`
-  gap: 17px;
-  margin-top: 30px;
+  gap: 15px;
+  margin-top: 46px;
   justify-content: center;
   align-items: center;
 `;
 
-const UserIcon = styled.View`
+const UserIcon = styled.Image`
   width: 102px;
   height: 102px;
   border-radius: 1000px;
   background: #d9d9d9;
 `;
 
-const UserEditBox = styled.View`
+const UserEditBox = styled.Pressable`
   flex-direction: row;
   align-items: center;
-  gap: 5px;
+  gap: 3px;
 `;
 
 const UserName = styled.Text`
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: #fff;
 `;
 
 const CommunityBox = styled.View`
   border-top-width: 1px;
-  border-color: #606060;
-  padding-top: 20px;
-  margin-top: 20px;
+  border-color: #575757;
+  padding-top: 18px;
+  margin-top: 31px;
   gap: 24px;
 `;
 

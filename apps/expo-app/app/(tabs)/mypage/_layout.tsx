@@ -5,7 +5,7 @@ const MyPageLayout = () => {
   return (
     <Stack
       screenOptions={{
-        contentStyle: { backgroundColor: '#000' },
+        contentStyle: { backgroundColor: '#121212' },
         headerStyle: { backgroundColor: '#222' },
         header: ({ navigation, options }) => (
           <CustomHeader navigation={navigation} options={options} />
@@ -20,6 +20,13 @@ const MyPageLayout = () => {
         name="story"
         options={{
           headerBackTitle: '내가 쓴 스토리',
+        }}
+      />
+      <Stack.Screen
+        name="change"
+        options={{
+          headerBackVisible: true,
+          headerBackTitle: '닉네임 변경',
         }}
       />
       <Stack.Screen

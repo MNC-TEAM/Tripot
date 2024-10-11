@@ -21,9 +21,11 @@ const CustomHeader = ({ navigation, options }: CustomHeaderState) => {
             gap: 14,
           }}
         >
-          <Pressable onPress={navigation.goBack}>
-            <LeftSvg width={24} />
-          </Pressable>
+          {!options.headerBackVisible && (
+            <Pressable onPress={navigation.goBack}>
+              <LeftSvg width={24} />
+            </Pressable>
+          )}
           <Text style={{ color: '#fff', fontWeight: 600, fontSize: 20 }}>
             {options.headerBackTitle}
           </Text>
