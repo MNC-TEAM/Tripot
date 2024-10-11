@@ -20,6 +20,7 @@ const MainScreens = ({ location }: MainScreensState) => {
         longitude: location.coords.longitude + 1,
       },
       uri: 'https://picsum.photos/200',
+      length: 10,
     },
     {
       coordinate: {
@@ -47,6 +48,7 @@ const MainScreens = ({ location }: MainScreensState) => {
                 key={index}
                 coordinate={marker.coordinate}
                 uri={marker.uri}
+                length={marker.length}
               />
             ))}
         </StyledMapView>
