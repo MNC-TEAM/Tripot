@@ -22,6 +22,9 @@ const TabLayout = () => {
             <Ionicons name="person" size={20} color={color} />
           ),
           headerShown: false,
+          tabBarStyle: {
+            display: 'none',
+          },
         }}
       />
       <Tabs.Screen

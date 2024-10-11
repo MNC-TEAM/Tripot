@@ -1,44 +1,14 @@
+import CustomHeader from '@/ui/CustomHeader';
 import { Stack } from 'expo-router';
-import { SafeAreaView, Text, View } from 'react-native';
-import Ionicons from '@expo/vector-icons/Ionicons';
 
 const MyPageLayout = () => {
   return (
     <Stack
       screenOptions={{
-        contentStyle: { backgroundColor: '#000' },
+        contentStyle: { backgroundColor: '#121212' },
         headerStyle: { backgroundColor: '#222' },
         header: ({ navigation, options }) => (
-          <SafeAreaView style={options.headerStyle}>
-            <View
-              style={[
-                {
-                  height: 60,
-                  justifyContent: 'flex-end',
-                  paddingHorizontal: 24,
-                  paddingBottom: 20,
-                },
-              ]}
-            >
-              <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  gap: 14,
-                }}
-              >
-                <Ionicons
-                  onPress={navigation.goBack}
-                  name="chevron-back"
-                  size={32}
-                  color="white"
-                />
-                <Text style={{ color: '#fff', fontWeight: 600, fontSize: 20 }}>
-                  {options.headerBackTitle}
-                </Text>
-              </View>
-            </View>
-          </SafeAreaView>
+          <CustomHeader navigation={navigation} options={options} />
         ),
         headerTitle: '',
         headerTintColor: '#fff',
@@ -50,6 +20,13 @@ const MyPageLayout = () => {
         name="story"
         options={{
           headerBackTitle: '내가 쓴 스토리',
+        }}
+      />
+      <Stack.Screen
+        name="change"
+        options={{
+          headerBackVisible: true,
+          headerBackTitle: '닉네임 변경',
         }}
       />
       <Stack.Screen

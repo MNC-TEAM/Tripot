@@ -17,8 +17,7 @@ export default Notice;
 
 const NoticeStyled = styled.View`
   width: 100%;
-  background: #000;
-  padding: 15px 24px;
+  padding: 15px 0;
 `;
 
 const Title = styled.Text`

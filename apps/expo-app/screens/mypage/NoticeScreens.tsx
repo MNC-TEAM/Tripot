@@ -1,4 +1,5 @@
 import Notice from '@/components/Mypage/Notice';
+import { FlatList } from 'react-native';
 import styled from 'styled-components/native';
 
 const NoticeScreens = () => {
@@ -10,11 +11,18 @@ const NoticeScreens = () => {
         paddingVertical: 24,
       }}
     >
-      {Array(100)
-        .fill(0)
-        .map((_, index) => (
-          <Notice />
-        ))}
+      <FlatList
+        contentContainerStyle={{
+          paddingHorizontal: 24,
+        }}
+        data={Array.from({ length: 100 }, (_, i) => ({ index: i + 1 }))}
+        renderItem={({ index }) => (
+          <Line index={index}>
+            <Notice />
+          </Line>
+        )}
+        keyExtractor={item => String(item.index)}
+      />
     </ScrollViewStyled>
   );
 };
@@ -23,5 +31,9 @@ export default NoticeScreens;
 
 const ScrollViewStyled = styled.ScrollView`
   flex: 1;
-  padding: 0 24px;
+`;
+
+const Line = styled.View<{ index: number }>`
+  border-top-width: ${({ index }) => (index !== 0 ? '1px' : '')};
+  border-color: rgba(255, 255, 255, 0.3);
 `;

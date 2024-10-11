@@ -25,8 +25,6 @@ const StoryCardStyled = styled.Pressable`
   flex-direction: row;
   gap: 12px;
   padding: 16px 24px;
-  background: rgba(0, 0, 0, 0.5);
-  /* border-radius: 12px; */
 `;
 
 const Img = styled.Image`
