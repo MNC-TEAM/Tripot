@@ -12,6 +12,18 @@ const monorepoRoot = path.resolve(projectRoot, '../..');
 /** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(__dirname);
 
+const { transformer, resolver } = config;
+
+config.transformer = {
+  ...transformer,
+  babelTransformerPath: require.resolve('react-native-svg-transformer/expo'),
+};
+config.resolver = {
+  ...resolver,
+  assetExts: resolver.assetExts.filter(ext => ext !== 'svg'),
+  sourceExts: [...resolver.sourceExts, 'svg'],
+};
+
 // 1. Watch all files within the monorepo
 config.watchFolders = [monorepoRoot];
 // 2. Let Metro know where to resolve packages and in what order
