@@ -8,9 +8,11 @@ const CustomHeader = ({ navigation, options }: CustomHeaderState) => {
         style={[
           {
             height: 60,
-            justifyContent: 'flex-end',
+            justifyContent: 'space-between',
+            alignItems: 'center',
             paddingHorizontal: 24,
             paddingBottom: 20,
+            flexDirection: 'row',
           },
         ]}
       >
@@ -30,6 +32,8 @@ const CustomHeader = ({ navigation, options }: CustomHeaderState) => {
             {options.headerBackTitle}
           </Text>
         </View>
+
+        {options.headerRight && <options.headerRight />}
       </View>
     </SafeAreaView>
   );

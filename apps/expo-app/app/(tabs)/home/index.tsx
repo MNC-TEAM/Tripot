@@ -1,4 +1,4 @@
-import MainScreens from '@/screens/MainScreens';
+import MainScreens from '@/screens/home/MainScreens';
 import * as Location from 'expo-location';
 import { useEffect, useState } from 'react';
 

@@ -8,8 +8,11 @@ import { useCallback, useRef } from 'react';
 import ImageMarker from '@/components/Main/ImageMarker';
 import StoryModal from '@/components/Main/StoryModal';
 import AlertSVG from '@/assets/icon/alert.svg';
+import { useRouter } from 'expo-router';
 
 const MainScreens = ({ location }: MainScreensState) => {
+  const router = useRouter();
+
   const markers = [
     {
       coordinate: location.coords,
@@ -41,7 +44,7 @@ const MainScreens = ({ location }: MainScreensState) => {
   return (
     <BottomSheetModalProvider>
       <MapContainer>
-        <AlertBtn>
+        <AlertBtn onPress={() => router.push('/home/notification')}>
           <AlertSVG width={24} />
         </AlertBtn>
         <StyledMapView>
