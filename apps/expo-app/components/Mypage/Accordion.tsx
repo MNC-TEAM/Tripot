@@ -1,19 +1,12 @@
-import { useRef, useState } from 'react';
-import { Animated, LayoutAnimation, Pressable } from 'react-native';
+import { useState } from 'react';
+import { LayoutAnimation, Pressable } from 'react-native';
 import styled from 'styled-components/native';
 import UpSVG from '@/assets/icon/up.svg';
 import DownSVG from '@/assets/icon/down.svg';
 
 const Accordion = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const animationController = useRef(new Animated.Value(0)).current;
-
   const toggleAccordion = () => {
-    Animated.timing(animationController, {
-      duration: 300,
-      toValue: isOpen ? 0 : 1,
-      useNativeDriver: true,
-    }).start();
     LayoutAnimation.configureNext({
       duration: 300,
       update: {
