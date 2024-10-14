@@ -7,7 +7,7 @@ const StoryCard = ({ tag, title, desc, date, uri, main }: StoryCardState) => {
       <Img source={{ uri }} />
       <TitleView>
         <Title>
-          <LocationTag>{tag}</LocationTag>
+          <LocationTag main={main}>{tag}</LocationTag>
           <TitleDesc>{title}</TitleDesc>
         </Title>
         <Desc numberOfLines={2} ellipsizeMode="tail">

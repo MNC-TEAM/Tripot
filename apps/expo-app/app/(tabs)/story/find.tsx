@@ -1,7 +1,7 @@
 import FindScreens from '@/screens/story/FindScreens';
 import OverlayBackground from '@/ui/OverlayBackground';
 
-const FindPage = () => {
+const StoryLayout = () => {
   return (
     <OverlayBackground>
       <FindScreens />
@@ -9,4 +9,4 @@ const FindPage = () => {
   );
 };
 
-export default FindPage;
+export default StoryLayout;

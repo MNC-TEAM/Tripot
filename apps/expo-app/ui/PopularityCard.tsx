@@ -1,15 +1,21 @@
 import LocationTag from '@/ui/LocationTag';
 import styled from 'styled-components/native';
 
-const PopularityCard = ({ tag, title, date, uri }: PopularityCardState) => {
+const PopularityCard = ({
+  tag,
+  title,
+  date,
+  uri,
+  main,
+}: PopularityCardState) => {
   return (
     <PopularityCardStyle>
       <PopularityImg source={{ uri }} />
       <PopularityTitleStyle>
-        <LocationTag>{tag}</LocationTag>
+        <LocationTag main={main}>{tag}</LocationTag>
         <PopularityTitle>{title}</PopularityTitle>
       </PopularityTitleStyle>
-      <PopularityDesc>{date}</PopularityDesc>
+      <Date>{date}</Date>
     </PopularityCardStyle>
   );
 };
@@ -18,15 +24,14 @@ export default PopularityCard;
 
 const PopularityCardStyle = styled.Pressable`
   width: 342px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 12px;
-  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.24);
+  border-radius: 20px;
+  padding: 10px;
 `;
 
 const PopularityImg = styled.Image`
   width: 100%;
   height: 174px;
-  background: #acf;
   border-radius: 12px;
 `;
 
@@ -43,9 +48,9 @@ const PopularityTitle = styled.Text`
   font-weight: 600;
 `;
 
-const PopularityDesc = styled.Text`
+const Date = styled.Text`
   font-weight: 500;
   font-size: 12px;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
   text-align: right;
 `;
