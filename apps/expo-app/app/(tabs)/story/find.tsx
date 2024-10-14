@@ -1,4 +1,4 @@
-import FindScreens from '@/screens/FindScreens';
+import FindScreens from '@/screens/story/FindScreens';
 import OverlayBackground from '@/ui/OverlayBackground';
 
 const FindPage = () => {
