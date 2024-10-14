@@ -15,7 +15,10 @@ const ImageMarker = ({
             <LengthNumber>{length}</LengthNumber>
           </Length>
         )}
-        <MarkerImage source={{ uri }} resizeMode="cover" />
+        <MarkerImage
+          source={uri ? { uri } : require('@/assets/Thumbnail.png')}
+          resizeMode="cover"
+        />
       </StyledMarker>
     </Marker>
   );

@@ -22,9 +22,6 @@ const TabLayout = () => {
         options={{
           tabBarIcon: ({ color }) => <MypageSVG width={24} color={color} />,
           headerShown: false,
-          tabBarStyle: {
-            display: 'none',
-          },
         }}
       />
       <Tabs.Screen
@@ -61,6 +58,7 @@ const tabBarStyle: ViewStyle = {
   left: '50%',
   transform: [{ translateX: -103 }],
   flexDirection: 'row',
+  zIndex: 1,
 };
 
 const tabBarItemStyle: ViewStyle = {

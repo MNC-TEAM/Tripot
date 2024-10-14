@@ -1,67 +1,81 @@
 import { FlatList, Pressable, View, ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
-import { BottomSheetModal, BottomSheetView } from '@gorhom/bottom-sheet';
+import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import { BlurView } from 'expo-blur';
-import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
+import { BottomSheetMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import DATA from '@/common/DATA';
 import StoryCard from '@/ui/StoryCard';
 import SearchSVG from '@/assets/icon/search.svg';
+import { useCallback, useState } from 'react';
+import WriteBtn from '@/components/Main/WriteBtn';
 
-const StoryModal = ({ bottomSheetModalRef }: StoryModalState) => {
+const StoryModal = ({ bottomSheetRef }: StoryModalState) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log('handleSheetChanges', index);
+  }, []);
+
   return (
-    <BottomSheetModal
-      ref={bottomSheetModalRef}
-      handleStyle={handleStyle}
-      handleIndicatorStyle={handleIndicatorStyle}
-      backgroundComponent={({ style }) => (
-        <BlurViewStyled style={style} intensity={70} />
-      )}
-    >
-      <ModalContainer>
-        <TitleContainer>
-          <TitleStyle>My all stories (23)</TitleStyle>
-          <Pressable>
-            <SearchSVG width={24} />
-          </Pressable>
-        </TitleContainer>
+    <>
+      <WriteBtn />
+      <BottomSheet
+        ref={bottomSheetRef}
+        onChange={handleSheetChanges}
+        handleStyle={handleStyle}
+        handleIndicatorStyle={handleIndicatorStyle}
+        snapPoints={[450, 450, 50]}
+        backgroundComponent={({ style }) => (
+          <BlurViewStyled style={style} intensity={70} />
+        )}
+      >
+        <ModalContainer>
+          <TitleContainer>
+            {!isOpen && <TitleStyle>My all stories (23)</TitleStyle>}
+            {isOpen && <TextInputStyled placeholder="내 스토리를 검색하세요" />}
+            <Pressable onPress={() => setIsOpen(!isOpen)}>
+              <SearchSVG width={24} />
+            </Pressable>
+          </TitleContainer>
 
-        <HorizonScrollView
-          horizontal
-          contentContainerStyle={{ paddingHorizontal: 24 }}
-        >
-          <TagContainer>
-            <TagText>
-              <TagTextColor>서울</TagTextColor>(2)
-            </TagText>
-          </TagContainer>
-        </HorizonScrollView>
+          <HorizonScrollView
+            horizontal
+            contentContainerStyle={{ paddingHorizontal: 24 }}
+          >
+            <TagContainer>
+              <TagText>
+                <TagTextColor>서울</TagTextColor>(2)
+              </TagText>
+            </TagContainer>
+          </HorizonScrollView>
 
-        <StoryCardContainer>
-          <FlatList
-            data={DATA}
-            renderItem={({ item }) => (
-              <StoryCard
-                main
-                tag={item.tag}
-                title={item.title}
-                desc={item.desc}
-                date={item.date}
-                uri={item.uri}
-              />
-            )}
-            keyExtractor={item => item.id}
-            ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
-          />
-        </StoryCardContainer>
-      </ModalContainer>
-    </BottomSheetModal>
+          <StoryCardContainer>
+            <FlatList
+              data={DATA}
+              renderItem={({ item }) => (
+                <StoryCard
+                  main
+                  tag={item.tag}
+                  title={item.title}
+                  desc={item.desc}
+                  date={item.date}
+                  uri={item.uri}
+                />
+              )}
+              keyExtractor={item => item.id}
+              ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
+            />
+          </StoryCardContainer>
+        </ModalContainer>
+      </BottomSheet>
+    </>
   );
 };
 
 export default StoryModal;
 
 interface StoryModalState {
-  bottomSheetModalRef: React.RefObject<BottomSheetModalMethods>;
+  bottomSheetRef: React.RefObject<BottomSheetMethods>;
 }
 
 const StoryCardContainer = styled.View`
@@ -95,6 +109,19 @@ const TitleContainer = styled.View`
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
+  gap: 11px;
+`;
+
+const TextInputStyled = styled.TextInput.attrs({
+  placeholderTextColor: 'rgba(255,255,255,0.5)',
+})`
+  flex: 1;
+  background: rgba(0, 0, 0, 0.24);
+  border-radius: 100px;
+  box-sizing: border-box;
+  padding: 0 15px;
+  color: #fff;
+  height: 41px;
 `;
 
 const TitleStyle = styled.Text`

@@ -1,9 +1,6 @@
 import MapView from 'react-native-maps';
 import styled from 'styled-components/native';
-import {
-  BottomSheetModal,
-  BottomSheetModalProvider,
-} from '@gorhom/bottom-sheet';
+import BottomSheet from '@gorhom/bottom-sheet';
 import { useCallback, useRef } from 'react';
 import ImageMarker from '@/components/Main/ImageMarker';
 import StoryModal from '@/components/Main/StoryModal';
@@ -33,21 +30,29 @@ const MainScreens = ({ location }: MainScreensState) => {
       },
       uri: 'https://picsum.photos/200',
     },
+    {
+      coordinate: {
+        latitude: location.coords.latitude - 1,
+        longitude: location.coords.longitude + 0.9,
+      },
+      uri: '',
+      length: 20,
+    },
   ];
 
-  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+  const bottomSheetRef = useRef<BottomSheet>(null);
 
   const handlePresentModalPress = useCallback(() => {
-    bottomSheetModalRef.current?.present();
+    bottomSheetRef.current?.snapToPosition(450);
   }, []);
 
   return (
-    <BottomSheetModalProvider>
+    <>
       <MapContainer>
         <AlertBtn onPress={() => router.push('/home/notification')}>
           <AlertSVG width={24} />
         </AlertBtn>
-        <StyledMapView>
+        <StyledMapView rotateEnabled={false}>
           {location &&
             markers.map((marker, index) => (
               <ImageMarker
@@ -60,8 +65,8 @@ const MainScreens = ({ location }: MainScreensState) => {
             ))}
         </StyledMapView>
       </MapContainer>
-      <StoryModal bottomSheetModalRef={bottomSheetModalRef} />
-    </BottomSheetModalProvider>
+      <StoryModal bottomSheetRef={bottomSheetRef} />
+    </>
   );
 };
 
@@ -74,7 +79,6 @@ const MapContainer = styled.View`
 const StyledMapView = styled(MapView)`
   flex: 1;
 `;
-
 const AlertBtn = styled.Pressable`
   position: absolute;
   right: 24px;
