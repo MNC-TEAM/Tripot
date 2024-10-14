@@ -6,7 +6,7 @@ const NowStoryCard = ({ tag, title, uri }: NowStoryCardState) => {
     <NowStoryView>
       <NowStoryImage source={{ uri }} />
       <NowStoryTextView>
-        <LocationTag>{tag}</LocationTag>
+        <LocationTag main>{tag}</LocationTag>
         <NowStoryText numberOfLines={1} ellipsizeMode="tail">
           {title}
         </NowStoryText>
@@ -20,7 +20,7 @@ export default NowStoryCard;
 const NowStoryView = styled.View`
   width: 138px;
   height: 160px;
-  border-radius: 8px;
+  border-radius: 20px;
   background: rgba(0, 0, 0, 0.24);
   align-items: center;
   justify-content: center;
@@ -30,7 +30,7 @@ const NowStoryView = styled.View`
 const NowStoryImage = styled.Image`
   width: 113px;
   height: 102px;
-  border-radius: 8px;
+  border-radius: 12px;
 `;
 
 const NowStoryTextView = styled.View`
