@@ -8,13 +8,29 @@ const TabLayout = () => {
   return (
     <Tabs
       safeAreaInsets={safeAreaInsetsStyle}
-      screenOptions={{
-        tabBarActiveTintColor: 'white',
-        tabBarInactiveTintColor: 'white',
-        tabBarStyle,
-        tabBarItemStyle,
-        tabBarShowLabel: false,
-        tabBarActiveBackgroundColor: 'rgba(000,000,000,0.6)',
+      screenOptions={({ route }) => {
+        return {
+          tabBarActiveTintColor: 'white',
+          tabBarInactiveTintColor: 'white',
+          tabBarItemStyle,
+          tabBarShowLabel: false,
+          tabBarActiveBackgroundColor: 'rgba(000,000,000,0.6)',
+          tabBarStyle: {
+            position: 'absolute',
+            bottom: 35,
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: 1000,
+            backgroundColor: 'rgba(000,000,000,0.39)',
+            width: 206,
+            height: 60,
+            left: '50%',
+            transform: [{ translateX: -103 }],
+            flexDirection: 'row',
+            zIndex: 1,
+            display: 'none',
+          },
+        };
       }}
     >
       <Tabs.Screen
@@ -45,21 +61,6 @@ const TabLayout = () => {
 export default TabLayout;
 
 const safeAreaInsetsStyle = { top: 0, bottom: 0, left: 0, right: 0 };
-
-const tabBarStyle: ViewStyle = {
-  position: 'absolute',
-  bottom: 35,
-  justifyContent: 'center',
-  alignItems: 'center',
-  borderRadius: 1000,
-  backgroundColor: 'rgba(000,000,000,0.39)',
-  width: 206,
-  height: 60,
-  left: '50%',
-  transform: [{ translateX: -103 }],
-  flexDirection: 'row',
-  zIndex: 1,
-};
 
 const tabBarItemStyle: ViewStyle = {
   width: 47,

@@ -14,7 +14,16 @@ const StoryLayout = () => {
           <CustomHeader navigation={navigation} options={options} />
         ),
       }}
-    />
+    >
+      <Stack.Screen
+        name="modal"
+        options={{
+          presentation: 'fullScreenModal',
+          animation: 'fade',
+          headerShown: false,
+        }}
+      />
+    </Stack>
   );
 };
 
