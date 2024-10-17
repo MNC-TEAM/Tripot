@@ -25,7 +25,6 @@ const MyPageLayout = () => {
       <Stack.Screen
         name="change"
         options={{
-          headerBackVisible: true,
           headerBackTitle: '닉네임 변경',
         }}
       />

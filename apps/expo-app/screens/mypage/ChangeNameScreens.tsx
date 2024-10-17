@@ -1,4 +1,6 @@
 import Button from '@/ui/Button';
+import InputLabel from '@/ui/input/InputLabel';
+import Redundant from '@/ui/input/Redundant';
 import { useRouter } from 'expo-router';
 import styled from 'styled-components/native';
 
@@ -7,11 +9,9 @@ const ChangeNameScreens = () => {
 
   return (
     <ViewStyle>
-      <Label>닉네임을 입력해주세요</Label>
-      {/* 
-        TODO
-        로그인 페이지가 끝났을경우 Input창과 함께 기능 구현
-      */}
+      <InputLabel label="닉네임을 입력해주세요" color="#fff">
+        <Redundant />
+      </InputLabel>
       <Button onPress={() => router.back()} label="저장하기" />
     </ViewStyle>
   );
@@ -23,9 +23,4 @@ const ViewStyle = styled.View`
   padding: 30px 24px 73px;
   flex: 1;
   justify-content: space-between;
-`;
-
-const Label = styled.Text`
-  font-size: 16px;
-  color: #fff;
 `;

@@ -1,4 +1,4 @@
-import Notice from '@/components/Mypage/Notice';
+import Accordion from '@/components/Mypage/Accordion';
 import { FlatList } from 'react-native';
 import styled from 'styled-components/native';
 
@@ -18,7 +18,7 @@ const NoticeScreens = () => {
         data={Array.from({ length: 100 }, (_, i) => ({ index: i + 1 }))}
         renderItem={({ index }) => (
           <Line index={index}>
-            <Notice />
+            <Accordion />
           </Line>
         )}
         keyExtractor={item => String(item.index)}
@@ -36,4 +36,5 @@ const ScrollViewStyled = styled.ScrollView`
 const Line = styled.View<{ index: number }>`
   border-top-width: ${({ index }) => (index !== 0 ? '1px' : '')};
   border-color: rgba(255, 255, 255, 0.3);
+  padding: ${({ index }) => (index !== 0 ? '32px 0px' : '0px 0px 32px 0px')};
 `;
