@@ -1,4 +1,4 @@
-import StoryScreens from '@/screens/StoryScreens';
+import StoryScreens from '@/screens/story/StoryScreens';
 import OverlayBackground from '@/ui/OverlayBackground';
 
 const StoryPage = () => {

@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 const Notification = ({ userIcon, title, desc, ing }: NotificationState) => {
   return (
     <NotificationStyled>
-      <UserIcon source={{ uri: userIcon }} />
+      <UserIcon source={{ uri: userIcon ? userIcon : undefined }} />
       <TextBox>
         <Title>{title}</Title>
         <Desc>{desc}</Desc>
@@ -16,10 +16,10 @@ const Notification = ({ userIcon, title, desc, ing }: NotificationState) => {
 export default Notification;
 
 interface NotificationState {
-  userIcon: string;
+  userIcon?: string;
   title: string;
   desc: string;
-  ing: boolean;
+  ing?: boolean;
 }
 
 const NotificationStyled = styled.View`

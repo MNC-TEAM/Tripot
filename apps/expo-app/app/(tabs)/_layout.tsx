@@ -1,6 +1,8 @@
 import { Tabs } from 'expo-router';
 import { ViewStyle } from 'react-native';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import MypageSVG from '@/assets/icon/mypage.svg';
+import MainSVG from '@/assets/icon/main.svg';
+import DashSVG from '@/assets/icon/dash.svg';
 
 const TabLayout = () => {
   return (
@@ -18,30 +20,21 @@ const TabLayout = () => {
       <Tabs.Screen
         name="mypage"
         options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="person" size={20} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <MypageSVG width={24} color={color} />,
           headerShown: false,
-          tabBarStyle: {
-            display: 'none',
-          },
         }}
       />
       <Tabs.Screen
         name="home"
         options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="map-outline" size={20} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <MainSVG width={24} color={color} />,
           headerShown: false,
         }}
       />
       <Tabs.Screen
         name="story"
         options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="document-text" size={20} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <DashSVG width={24} color={color} />,
           headerShown: false,
         }}
       />
@@ -65,6 +58,7 @@ const tabBarStyle: ViewStyle = {
   left: '50%',
   transform: [{ translateX: -103 }],
   flexDirection: 'row',
+  zIndex: 1,
 };
 
 const tabBarItemStyle: ViewStyle = {

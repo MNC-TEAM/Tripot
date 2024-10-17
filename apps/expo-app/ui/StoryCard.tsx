@@ -1,13 +1,13 @@
 import LocationTag from '@/ui/LocationTag';
 import styled from 'styled-components/native';
 
-const StoryCard = ({ tag, title, desc, date, uri }: StoryCardState) => {
+const StoryCard = ({ tag, title, desc, date, uri, main }: StoryCardState) => {
   return (
-    <StoryCardStyled>
+    <StoryCardStyled main={main}>
       <Img source={{ uri }} />
       <TitleView>
         <Title>
-          <LocationTag>{tag}</LocationTag>
+          <LocationTag main={main}>{tag}</LocationTag>
           <TitleDesc>{title}</TitleDesc>
         </Title>
         <Desc numberOfLines={2} ellipsizeMode="tail">
@@ -21,10 +21,12 @@ const StoryCard = ({ tag, title, desc, date, uri }: StoryCardState) => {
 
 export default StoryCard;
 
-const StoryCardStyled = styled.Pressable`
+const StoryCardStyled = styled.Pressable<{ main?: boolean }>`
   flex-direction: row;
   gap: 12px;
-  padding: 16px 24px;
+  padding: ${({ main }) => (main ? '10px 11px' : '16px 24px')};
+  background-color: ${({ main }) => (main ? 'rgba(0,0,0,0.24)' : '')};
+  border-radius: ${({ main }) => (main ? '20px' : '0px')};
 `;
 
 const Img = styled.Image`
