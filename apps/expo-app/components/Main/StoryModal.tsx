@@ -9,12 +9,16 @@ import SearchSVG from '@/assets/icon/search.svg';
 import { useState } from 'react';
 import WriteBtn from '@/components/Main/WriteBtn';
 import { SearchTextInput } from '@/ui/input/Search';
+import LocationSVG from '@/assets/icon/location.svg';
 
 const StoryModal = ({ bottomSheetRef }: StoryModalState) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
+      <Location>
+        <LocationSVG />
+      </Location>
       <WriteBtn />
       <BottomSheet
         ref={bottomSheetRef}
@@ -73,6 +77,20 @@ export default StoryModal;
 interface StoryModalState {
   bottomSheetRef: React.RefObject<BottomSheetMethods>;
 }
+
+const Location = styled.TouchableOpacity`
+  width: 36px;
+  height: 36px;
+  border-radius: 1000px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 50px;
+  left: 26px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.51);
+`;
 
 const StoryCardContainer = styled.View`
   margin-top: 22px;
