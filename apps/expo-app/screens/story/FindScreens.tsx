@@ -4,6 +4,7 @@ import DATA from '@/common/DATA';
 import NowStoryCard from '@/ui/NowStoryCard';
 import Header from '@/components/Story/Header';
 import SearchSVG from '@/assets/icon/search.svg';
+import { SearchTextInput } from '@/ui/input/Search';
 
 const FindScreens = () => {
   return (
@@ -92,20 +93,6 @@ const SearchStyled = styled.View`
   flex-direction: row;
   position: relative;
   margin-top: 30px;
-`;
-
-const SearchTextInput = styled.TextInput.attrs({
-  placeholderTextColor: 'rgba(255,255,255,0.29)',
-})`
-  height: 41px;
-  width: 100%;
-  border-radius: 1000px;
-  padding: 0 16px;
-  box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.24);
-  font-size: 14px;
-  font-weight: 500;
-  color: #fff;
 `;
 
 const SearchIcon = styled.Pressable`

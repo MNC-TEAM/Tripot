@@ -6,22 +6,18 @@ import { BottomSheetMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import DATA from '@/common/DATA';
 import StoryCard from '@/ui/StoryCard';
 import SearchSVG from '@/assets/icon/search.svg';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import WriteBtn from '@/components/Main/WriteBtn';
+import { SearchTextInput } from '@/ui/input/Search';
 
 const StoryModal = ({ bottomSheetRef }: StoryModalState) => {
-  const [isOpen, setIsOpen] = useState(true);
-
-  const handleSheetChanges = useCallback((index: number) => {
-    console.log('handleSheetChanges', index);
-  }, []);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <WriteBtn />
       <BottomSheet
         ref={bottomSheetRef}
-        onChange={handleSheetChanges}
         handleStyle={handleStyle}
         handleIndicatorStyle={handleIndicatorStyle}
         snapPoints={[450, 450, 50]}
@@ -32,7 +28,7 @@ const StoryModal = ({ bottomSheetRef }: StoryModalState) => {
         <ModalContainer>
           <TitleContainer>
             {!isOpen && <TitleStyle>My all stories (23)</TitleStyle>}
-            {isOpen && <TextInputStyled placeholder="내 스토리를 검색하세요" />}
+            {isOpen && <SearchTextInput placeholder="내 스토리를 검색하세요" />}
             <Pressable onPress={() => setIsOpen(!isOpen)}>
               <SearchSVG width={24} />
             </Pressable>
@@ -110,18 +106,6 @@ const TitleContainer = styled.View`
   justify-content: space-between;
   padding: 0 24px;
   gap: 11px;
-`;
-
-const TextInputStyled = styled.TextInput.attrs({
-  placeholderTextColor: 'rgba(255,255,255,0.5)',
-})`
-  flex: 1;
-  background: rgba(0, 0, 0, 0.24);
-  border-radius: 100px;
-  box-sizing: border-box;
-  padding: 0 15px;
-  color: #fff;
-  height: 41px;
 `;
 
 const TitleStyle = styled.Text`
