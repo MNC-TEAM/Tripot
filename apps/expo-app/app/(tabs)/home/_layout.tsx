@@ -4,7 +4,11 @@ import { Pressable, Text } from 'react-native';
 
 const HomeLayout = () => {
   return (
-    <Stack>
+    <Stack
+      screenOptions={{
+        gestureEnabled: false,
+      }}
+    >
       <Stack.Screen
         name="index"
         options={{

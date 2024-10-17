@@ -13,6 +13,7 @@ const MyPageLayout = () => {
         headerTitle: '',
         headerTintColor: '#fff',
         headerBackTitleStyle: { fontSize: 20 },
+        gestureEnabled: false,
       }}
     >
       <Stack.Screen name="index" options={{ headerShown: false }} />

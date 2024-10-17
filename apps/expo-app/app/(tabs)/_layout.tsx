@@ -28,7 +28,7 @@ const TabLayout = () => {
             transform: [{ translateX: -103 }],
             flexDirection: 'row',
             zIndex: 1,
-            display: 'none',
+            // display: 'none',
           },
         };
       }}
