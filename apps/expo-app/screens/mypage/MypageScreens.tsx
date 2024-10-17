@@ -4,7 +4,7 @@ import EditSVG from '@/assets/icon/edit.svg';
 import MainSVG from '@/assets/icon/main.svg';
 import CommentSVG from '@/assets/icon/comment.svg';
 import HeartSVG from '@/assets/icon/heart.svg';
-import SettingSVG from '@/assets/icon/setting.svg';
+import { Pressable } from 'react-native';
 
 const MypageScreens = () => {
   const router = useRouter();
@@ -14,7 +14,14 @@ const MypageScreens = () => {
       <Wrapper>
         <TitleBox>
           <TitleBoxText>마이페이지</TitleBoxText>
-          <SettingSVG width={24} />
+          {/* 
+            Todo - MVP 이후
+            다크모드, 
+            나이트모드,
+            알람설정, 
+            추천받을 지역 선택
+            <SettingSVG width={24} /> 
+          */}
         </TitleBox>
 
         <UserBox>
@@ -47,8 +54,14 @@ const MypageScreens = () => {
         </ListViews>
 
         <CommunityBox>
-          <CommunityText href="/mypage/notice">공지사항</CommunityText>
-          <CommunityText href="/mypage/cs">고객센터</CommunityText>
+          <CommunityLink href="/mypage/notice">공지사항</CommunityLink>
+          <CommunityLink href="/mypage/cs">고객센터</CommunityLink>
+        </CommunityBox>
+
+        <CommunityBox>
+          <Pressable>
+            <CommunityText>로그아웃</CommunityText>
+          </Pressable>
         </CommunityBox>
       </Wrapper>
     </SafeAreaViewStyle>
@@ -129,7 +142,13 @@ const CommunityBox = styled.View`
   gap: 24px;
 `;
 
-const CommunityText = styled(Link)`
+const CommunityLink = styled(Link)`
   font-size: 16px;
   color: rgba(255, 255, 255, 0.72);
+  width: 100%;
+`;
+const CommunityText = styled.Text`
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.72);
+  width: 100%;
 `;

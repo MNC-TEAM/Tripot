@@ -6,16 +6,18 @@ const InputLabel = ({
   children,
   placeholder,
   label,
+  color,
 }: {
   children: ReactNode;
   placeholder?: string;
   label?: string;
+  color?: string;
 }) => {
   return (
     <View>
-      {label && <Label>{label}</Label>}
-      <Box>
-        <InputStyle placeholder={placeholder} />
+      {label && <Label color={color}>{label}</Label>}
+      <Box color={color}>
+        <InputStyle color={color} placeholder={placeholder} />
         {children}
       </Box>
     </View>
@@ -24,14 +26,16 @@ const InputLabel = ({
 
 export default InputLabel;
 
-const Label = styled.Text`
+const Label = styled.Text<{ color?: string }>`
   font-size: 16px;
   margin-bottom: 12px;
+  color: ${({ color }) => (color ? color : '#000')};
 `;
 
-const Box = styled.View`
+const Box = styled.View<{ color?: string }>`
   border: 1px;
   border-radius: 12px;
+  border-color: ${({ color }) => (color ? color : '#000')};
   height: 56px;
   padding: 0 13px 0 20px;
   flex-direction: row;
@@ -39,8 +43,9 @@ const Box = styled.View`
   gap: 5px;
 `;
 
-const InputStyle = styled.TextInput`
+const InputStyle = styled.TextInput<{ color?: string }>`
   font-size: 13px;
   flex: 1;
   font-weight: 500;
+  color: ${({ color }) => (color ? color : '#000')};
 `;
