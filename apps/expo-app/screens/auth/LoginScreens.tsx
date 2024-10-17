@@ -1,12 +1,12 @@
 import LoginBtn from '@/components/Auth/LoginBtn';
-import { Image } from 'react-native';
 import styled from 'styled-components/native';
+import LogoSVG from '@/assets/logo.svg';
 
 const LoginScreens = () => {
   return (
     <LoginView>
       <LogoView>
-        <Image source={require('@/assets/Logo.png')} />
+        <LogoSVG />
       </LogoView>
       <ButtonView>
         <LoginBtn type="kakao" />

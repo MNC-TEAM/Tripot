@@ -1,3 +1,5 @@
+import InputLabel from '@/ui/input/InputLabel';
+import Redundant from '@/ui/input/Redundant';
 import { useRouter } from 'expo-router';
 import styled from 'styled-components/native';
 
@@ -9,16 +11,11 @@ const JoinScreens = () => {
       <CotainerView>
         <UpScreenView>
           <TitleStyled>트립팟에 오신것을{'\n'}환영합니다</TitleStyled>
+
           <InputStyled>
-            <InputView>
-              <InputLabel>닉네임을 입력해주세요</InputLabel>
-              <InputBox>
-                <InputStyle placeholder="내용을 입력하세요" />
-                <Redundant>
-                  <RedundantText>중복확인</RedundantText>
-                </Redundant>
-              </InputBox>
-            </InputView>
+            <InputLabel label="닉네임을 입력해주세요">
+              <Redundant />
+            </InputLabel>
             {/* 
               TODO - 지역 검색 기능
               <InputView>
@@ -65,25 +62,6 @@ const InputStyled = styled.View`
   gap: 32px;
 `;
 
-const InputView = styled.View``;
-
-const InputLabel = styled.Text`
-  font-size: 16px;
-`;
-
-const InputBox = styled.View`
-  border: 1px;
-  border-radius: 12px;
-  height: 56px;
-  padding: 0 20px;
-  margin-top: 12px;
-`;
-
-const InputStyle = styled.TextInput`
-  font-size: 14px;
-  flex: 1;
-`;
-
 /* const InputDesc = styled.Text`
   font-size: 13px;
   font-weight: 500;
@@ -106,22 +84,4 @@ const ButtonStyle = styled.Pressable`
 const ButtonText = styled.Text`
   font-size: 18px;
   color: #fff;
-`;
-
-const Redundant = styled.View`
-  background: #d9d9d9;
-  position: absolute;
-  right: 13px;
-  top: 15px;
-  border-radius: 1000px;
-  width: 67px;
-  height: 26px;
-  align-items: center;
-  justify-content: center;
-`;
-
-const RedundantText = styled.Text`
-  font-size: 13px;
-  font-weight: 500;
-  color: #8b8b8b;
 `;

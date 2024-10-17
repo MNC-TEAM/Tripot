@@ -14,11 +14,11 @@ const Button = ({ onPress, label }: ButtonState) => {
 export default Button;
 
 interface ButtonState {
-  onPress?: ((event: GestureResponderEvent) => void) | null;
+  onPress?: (event: GestureResponderEvent) => void;
   label: string;
 }
 
-const ButtonStyled = styled.Pressable`
+const ButtonStyled = styled.TouchableOpacity`
   width: 100%;
 `;
 
