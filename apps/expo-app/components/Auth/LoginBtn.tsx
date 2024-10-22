@@ -5,7 +5,15 @@ const LoginBtn = ({ type }: LoginBtnState) => {
   const router = useRouter();
   return (
     <ButtonStyle type={type} onPress={() => router.push('/join')}>
-      <ButtonIcon />
+      {type === 'kakao' && (
+        <ButtonIcon source={require('@/assets/login/kakao.png')} />
+      )}
+      {type === 'apple' && (
+        <ButtonIcon source={require('@/assets/login/apple.png')} />
+      )}
+      {type === 'google' && (
+        <ButtonIcon source={require('@/assets/login/google.png')} />
+      )}
       <ButtonText type={type}>
         {type === 'kakao' && '카카오로 시작히기'}
         {type === 'apple' && 'Apple로 시작하기'}
@@ -43,10 +51,9 @@ const ButtonStyle = styled.Pressable<LoginBtnState>`
   border-radius: 12px;
 `;
 
-const ButtonIcon = styled.View`
-  width: 26px;
-  height: 26px;
-  background: #000;
+const ButtonIcon = styled.Image`
+  width: 24px;
+  height: 24px;
 `;
 
 const ButtonText = styled.Text<LoginBtnState>`

@@ -1,19 +1,21 @@
-import CustomHeader from '@/ui/CustomHeader';
+import CustomHeader from '@/ui/layout/CustomHeader';
 import { Stack } from 'expo-router';
+import { Platform } from 'react-native';
 
 const MyPageLayout = () => {
   return (
     <Stack
       screenOptions={{
-        contentStyle: { backgroundColor: '#121212' },
-        headerStyle: { backgroundColor: '#222' },
         header: ({ navigation, options }) => (
           <CustomHeader navigation={navigation} options={options} />
         ),
+        contentStyle: { backgroundColor: '#121212' },
+        headerStyle: { backgroundColor: '#222' },
         headerTitle: '',
         headerTintColor: '#fff',
         headerBackTitleStyle: { fontSize: 20 },
         gestureEnabled: false,
+        animation: Platform.OS === 'android' ? 'fade' : 'default',
       }}
     >
       <Stack.Screen name="index" options={{ headerShown: false }} />
@@ -26,7 +28,6 @@ const MyPageLayout = () => {
       <Stack.Screen
         name="change"
         options={{
-          headerBackVisible: true,
           headerBackTitle: '닉네임 변경',
         }}
       />

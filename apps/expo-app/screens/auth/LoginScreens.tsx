@@ -1,28 +1,29 @@
 import LoginBtn from '@/components/Auth/LoginBtn';
-import { Image } from 'react-native';
 import styled from 'styled-components/native';
+import LogoSVG from '@/assets/logo.svg';
+import { SafeAreaUi } from '@/ui/common/style';
 
 const LoginScreens = () => {
   return (
-    <LoginView>
+    <SafeAreaViewStyle>
       <LogoView>
-        <Image source={require('@/assets/Logo.png')} />
+        <LogoSVG />
       </LogoView>
       <ButtonView>
         <LoginBtn type="kakao" />
         <LoginBtn type="apple" />
         <LoginBtn type="google" />
       </ButtonView>
-    </LoginView>
+    </SafeAreaViewStyle>
   );
 };
 
 export default LoginScreens;
 
-const LoginView = styled.SafeAreaView`
-  flex: 1;
+const SafeAreaViewStyle = styled(SafeAreaUi)`
   justify-content: center;
   align-items: center;
+  background: #fff;
 `;
 
 const LogoView = styled.View`

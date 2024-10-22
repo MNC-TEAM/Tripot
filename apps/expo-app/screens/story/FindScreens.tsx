@@ -1,22 +1,22 @@
-import { Text, SafeAreaView, View, ScrollView, FlatList } from 'react-native';
+import { Text, View, ScrollView, FlatList } from 'react-native';
 import styled from 'styled-components/native';
-import Ionicons from '@expo/vector-icons/Ionicons';
 import DATA from '@/common/DATA';
 import NowStoryCard from '@/ui/NowStoryCard';
+import Header from '@/components/Story/Header';
+import SearchSVG from '@/assets/icon/search.svg';
+import { SearchTextInput } from '@/ui/input/Search';
+import { SafeAreaUi } from '@/ui/common/style';
 
 const FindScreens = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaUi>
       <Wrapper>
-        <Title>검색하기</Title>
+        <Header>검색하기</Header>
 
         <SearchStyled>
-          <SearchTextInput
-            placeholder="검색어를 입력하세요"
-            placeholderTextColor="rgba(255,255,255,0.29)"
-          />
+          <SearchTextInput placeholder="검색어를 입력하세요" />
           <SearchIcon>
-            <Ionicons name="search" size={26} color="white" />
+            <SearchSVG width={21.23} />
           </SearchIcon>
         </SearchStyled>
 
@@ -37,6 +37,7 @@ const FindScreens = () => {
           style={{ marginTop: 23 }}
           contentContainerStyle={{ paddingHorizontal: 24 }}
           horizontal
+          showsHorizontalScrollIndicator={false}
         >
           <View style={{ gap: 11, flexDirection: 'row' }}>
             <HashView>
@@ -65,18 +66,21 @@ const FindScreens = () => {
         <Heading>지금 많이 보는 스토리</Heading>
       </Wrapper>
 
-      <FlatList
-        style={{
-          marginTop: 26,
-        }}
-        horizontal
-        data={DATA}
-        contentContainerStyle={{ paddingHorizontal: 24 }}
-        renderItem={({ item }) => <NowStoryCard {...item} />}
-        ItemSeparatorComponent={() => <View style={{ width: 6 }} />}
-        keyExtractor={item => item.id}
-      />
-    </SafeAreaView>
+      <View>
+        <FlatList
+          style={{
+            marginTop: 26,
+          }}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          data={DATA}
+          contentContainerStyle={{ paddingHorizontal: 24 }}
+          renderItem={({ item }) => <NowStoryCard {...item} />}
+          ItemSeparatorComponent={() => <View style={{ width: 6 }} />}
+          keyExtractor={item => item.id}
+        />
+      </View>
+    </SafeAreaUi>
   );
 };
 
@@ -86,29 +90,10 @@ const Wrapper = styled.View`
   padding: 0 24px;
 `;
 
-const Title = styled.Text`
-  font-size: 20px;
-  color: #fff;
-  font-weight: 600;
-  margin-top: 21px;
-`;
-
 const SearchStyled = styled.View`
   flex-direction: row;
   position: relative;
-  margin-top: 11px;
-`;
-
-const SearchTextInput = styled.TextInput`
-  height: 41px;
-  width: 100%;
-  border-radius: 1000px;
-  padding: 0 16px;
-  box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.24);
-  font-size: 14px;
-  font-weight: 500;
-  color: #fff;
+  margin-top: 30px;
 `;
 
 const SearchIcon = styled.Pressable`
@@ -119,7 +104,7 @@ const SearchIcon = styled.Pressable`
 
 const SearchHistoryView = styled.View`
   flex-direction: row;
-  margin-top: 9px;
+  margin-top: 12px;
   justify-content: space-between;
   padding-left: 15px;
   padding-right: 7px;
@@ -148,7 +133,7 @@ const HashView = styled.View`
 
 const HashText = styled.Text`
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
 `;
 

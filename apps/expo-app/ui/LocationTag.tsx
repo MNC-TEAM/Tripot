@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components/native';
 
-const LocationTag = ({ children }: LocationTagState) => {
+const LocationTag = ({ children, main }: LocationTagState) => {
   return (
-    <TagStyle>
+    <TagStyle main={main}>
       <Tag>{children}</Tag>
     </TagStyle>
   );
@@ -13,12 +13,14 @@ export default LocationTag;
 
 interface LocationTagState {
   children: ReactNode;
+  main?: boolean;
 }
 
-const TagStyle = styled.View`
+const TagStyle = styled.View<Pick<LocationTagState, 'main'>>`
   padding: 2px 12px;
   border-radius: 1000px;
-  background: rgba(119, 119, 119, 0.45);
+  background: ${({ main }) =>
+    !main ? 'rgba(119, 119, 119, 0.45)' : 'rgba(0, 0, 0, 0.45)'};
 `;
 
 const Tag = styled.Text`

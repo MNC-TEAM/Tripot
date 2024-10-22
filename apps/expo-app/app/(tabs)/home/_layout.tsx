@@ -1,4 +1,4 @@
-import CustomHeader from '@/ui/CustomHeader';
+import CustomHeader from '@/ui/layout/CustomHeader';
 import { Stack } from 'expo-router';
 import { Pressable, Text } from 'react-native';
 
