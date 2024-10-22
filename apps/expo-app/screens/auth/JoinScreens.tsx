@@ -12,7 +12,6 @@ const JoinScreens = () => {
       <CotainerView>
         <UpScreenView>
           <TitleStyled>트립팟에 오신것을{'\n'}환영합니다</TitleStyled>
-
           <InputStyled>
             <InputLabel label="닉네임을 입력해주세요">
               <Redundant />

@@ -43,7 +43,7 @@ const MainScreens = ({ location }: MainScreensState) => {
   const bottomSheetRef = useRef<BottomSheet>(null);
 
   const handlePresentModalPress = useCallback(() => {
-    bottomSheetRef.current?.snapToPosition(450);
+    bottomSheetRef.current?.snapToPosition(670);
   }, []);
 
   return (

@@ -45,10 +45,6 @@ const WriteBtn = () => {
 export default WriteBtn;
 
 const WriteStyled = styled.TouchableOpacity`
-  position: absolute;
-  bottom: 50px;
-  right: 26px;
-  margin-bottom: 18px;
   width: 129px;
   height: 44px;
   justify-content: center;

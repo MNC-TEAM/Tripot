@@ -14,6 +14,7 @@ const MyPageLayout = () => {
         headerTitle: '',
         headerTintColor: '#fff',
         headerBackTitleStyle: { fontSize: 20 },
+        gestureEnabled: false,
         animation: Platform.OS === 'android' ? 'fade' : 'default',
       }}
     >

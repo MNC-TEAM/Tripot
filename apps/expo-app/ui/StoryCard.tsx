@@ -1,9 +1,14 @@
 import LocationTag from '@/ui/LocationTag';
+import { useRouter } from 'expo-router';
 import styled from 'styled-components/native';
 
 const StoryCard = ({ tag, title, desc, date, uri, main }: StoryCardState) => {
+  const router = useRouter();
   return (
-    <StoryCardStyled main={main}>
+    <StoryCardStyled
+      main={main}
+      onPress={() => router.push('home/story/view/1')}
+    >
       <Img source={{ uri }} />
       <TitleView>
         <Title>

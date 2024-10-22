@@ -8,13 +8,15 @@ const TabLayout = () => {
   return (
     <Tabs
       safeAreaInsets={safeAreaInsetsStyle}
-      screenOptions={{
-        tabBarActiveTintColor: 'white',
-        tabBarInactiveTintColor: 'white',
-        tabBarStyle,
-        tabBarItemStyle,
-        tabBarShowLabel: false,
-        tabBarActiveBackgroundColor: 'rgba(000,000,000,0.6)',
+      screenOptions={({ route }) => {
+        return {
+          tabBarActiveTintColor: 'white',
+          tabBarInactiveTintColor: 'white',
+          tabBarItemStyle,
+          tabBarShowLabel: false,
+          tabBarActiveBackgroundColor: 'rgba(000,000,000,0.6)',
+          tabBarStyle,
+        };
       }}
     >
       <Tabs.Screen

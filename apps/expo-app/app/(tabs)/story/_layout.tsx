@@ -6,6 +6,7 @@ const StoryLayout = () => {
     <Stack
       screenOptions={{
         headerShown: false,
+        gestureEnabled: false,
         animation: Platform.OS === 'android' ? 'fade' : 'default',
       }}
     />

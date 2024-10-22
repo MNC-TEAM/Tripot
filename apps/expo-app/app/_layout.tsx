@@ -7,6 +7,7 @@ const RootLayout = () => {
     <GestureHandlerRootView>
       <Stack
         screenOptions={{
+          gestureEnabled: false,
           animation: Platform.OS === 'android' ? 'fade' : 'default',
         }}
       >
