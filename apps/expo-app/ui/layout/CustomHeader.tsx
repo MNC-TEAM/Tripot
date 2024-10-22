@@ -1,9 +1,11 @@
-import { Pressable, SafeAreaView, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import LeftSvg from '@/assets/icon/left.svg';
+import styled from 'styled-components/native';
+import { SafeAreaUi } from '@/ui/common/style';
 
 const CustomHeader = ({ navigation, options }: CustomHeaderState) => {
   return (
-    <SafeAreaView style={options.headerStyle}>
+    <SafeAreaViewStyle style={options.headerStyle}>
       <View
         style={[
           {
@@ -35,7 +37,7 @@ const CustomHeader = ({ navigation, options }: CustomHeaderState) => {
 
         {options.headerRight && <options.headerRight />}
       </View>
-    </SafeAreaView>
+    </SafeAreaViewStyle>
   );
 };
 
@@ -45,3 +47,7 @@ interface CustomHeaderState {
   navigation: any;
   options: any;
 }
+
+const SafeAreaViewStyle = styled(SafeAreaUi)`
+  flex: none;
+`;

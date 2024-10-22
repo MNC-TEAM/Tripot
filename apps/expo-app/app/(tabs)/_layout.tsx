@@ -51,8 +51,9 @@ const tabBarStyle: ViewStyle = {
   bottom: 35,
   justifyContent: 'center',
   alignItems: 'center',
-  borderRadius: 1000,
+  // borderRadius: 1000,
   backgroundColor: 'rgba(000,000,000,0.39)',
+  borderWidth: 0,
   width: 206,
   height: 60,
   left: '50%',
@@ -69,4 +70,5 @@ const tabBarItemStyle: ViewStyle = {
   marginHorizontal: 11,
   justifyContent: 'center',
   alignItems: 'center',
+  borderWidth: 0,
 };

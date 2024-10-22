@@ -1,14 +1,15 @@
-import { Text, SafeAreaView, View, ScrollView, FlatList } from 'react-native';
+import { Text, View, ScrollView, FlatList } from 'react-native';
 import styled from 'styled-components/native';
 import DATA from '@/common/DATA';
 import NowStoryCard from '@/ui/NowStoryCard';
 import Header from '@/components/Story/Header';
 import SearchSVG from '@/assets/icon/search.svg';
 import { SearchTextInput } from '@/ui/input/Search';
+import { SafeAreaUi } from '@/ui/common/style';
 
 const FindScreens = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaUi>
       <Wrapper>
         <Header>검색하기</Header>
 
@@ -79,7 +80,7 @@ const FindScreens = () => {
           keyExtractor={item => item.id}
         />
       </View>
-    </SafeAreaView>
+    </SafeAreaUi>
   );
 };
 

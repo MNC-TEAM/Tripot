@@ -1,3 +1,4 @@
+import { SafeAreaUi } from '@/ui/common/style';
 import InputLabel from '@/ui/input/InputLabel';
 import Redundant from '@/ui/input/Redundant';
 import { useRouter } from 'expo-router';
@@ -7,7 +8,7 @@ const JoinScreens = () => {
   const router = useRouter();
 
   return (
-    <SafeAreaViewStyled>
+    <SafeAreaViewStyle>
       <CotainerView>
         <UpScreenView>
           <TitleStyled>트립팟에 오신것을{'\n'}환영합니다</TitleStyled>
@@ -32,14 +33,14 @@ const JoinScreens = () => {
           <ButtonText>다음</ButtonText>
         </ButtonStyle>
       </CotainerView>
-    </SafeAreaViewStyled>
+    </SafeAreaViewStyle>
   );
 };
 
 export default JoinScreens;
 
-const SafeAreaViewStyled = styled.SafeAreaView`
-  flex: 1;
+const SafeAreaViewStyle = styled(SafeAreaUi)`
+  background: #fff;
 `;
 
 const CotainerView = styled.View`
@@ -73,7 +74,7 @@ const InputStyled = styled.View`
 
 const ButtonStyle = styled.Pressable`
   margin-top: auto;
-  width: 342px;
+  width: 100%;
   height: 53px;
   background: #000;
   border-radius: 12px;

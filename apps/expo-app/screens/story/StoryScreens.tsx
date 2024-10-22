@@ -1,13 +1,14 @@
-import { SafeAreaView, FlatList, View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import styled from 'styled-components/native';
 import DATA from '@/common/DATA';
 import PopularityCard from '@/ui/PopularityCard';
 import StoryCard from '@/ui/StoryCard';
 import Header from '@/components/Story/Header';
+import { SafeAreaUi } from '@/ui/common/style';
 
 const StoryScreens = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaUi>
       <Wrapper>
         <Header search>둘러보기</Header>
       </Wrapper>
@@ -102,7 +103,7 @@ const StoryScreens = () => {
           />
         </View>
       </Columns>
-    </SafeAreaView>
+    </SafeAreaUi>
   );
 };
 
