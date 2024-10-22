@@ -1,10 +1,11 @@
 import LoginBtn from '@/components/Auth/LoginBtn';
 import styled from 'styled-components/native';
 import LogoSVG from '@/assets/logo.svg';
+import { SafeAreaUi } from '@/ui/common/style';
 
 const LoginScreens = () => {
   return (
-    <LoginView>
+    <SafeAreaViewStyle>
       <LogoView>
         <LogoSVG />
       </LogoView>
@@ -13,16 +14,16 @@ const LoginScreens = () => {
         <LoginBtn type="apple" />
         <LoginBtn type="google" />
       </ButtonView>
-    </LoginView>
+    </SafeAreaViewStyle>
   );
 };
 
 export default LoginScreens;
 
-const LoginView = styled.SafeAreaView`
-  flex: 1;
+const SafeAreaViewStyle = styled(SafeAreaUi)`
   justify-content: center;
   align-items: center;
+  background: #fff;
 `;
 
 const LogoView = styled.View`

@@ -1,4 +1,4 @@
-import { FlatList, Pressable, View, ViewStyle } from 'react-native';
+import { FlatList, Platform, Pressable, View, ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import { BlurView } from 'expo-blur';
@@ -112,6 +112,7 @@ const BlurViewStyled = styled(BlurView)`
   overflow: hidden;
   border-top-left-radius: 34px;
   border-top-right-radius: 34px;
+  background: ${Platform.OS === 'android' && 'rgba(0,0,0,0.5)'};
 `;
 
 const ModalContainer = styled(BottomSheetView)`

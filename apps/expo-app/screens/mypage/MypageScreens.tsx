@@ -5,6 +5,7 @@ import MainSVG from '@/assets/icon/main.svg';
 import CommentSVG from '@/assets/icon/comment.svg';
 import HeartSVG from '@/assets/icon/heart.svg';
 import { Pressable } from 'react-native';
+import { SafeAreaUi } from '@/ui/common/style';
 
 const MypageScreens = () => {
   const router = useRouter();
@@ -70,10 +71,8 @@ const MypageScreens = () => {
 
 export default MypageScreens;
 
-const SafeAreaViewStyle = styled.SafeAreaView`
-  flex: 1;
+const SafeAreaViewStyle = styled(SafeAreaUi)`
   background: #2b2b2b;
-  padding: 0 24px;
 `;
 
 const Wrapper = styled.View`
