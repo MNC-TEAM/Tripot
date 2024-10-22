@@ -1,5 +1,5 @@
 import { FlatList, Platform, Pressable, View, ViewStyle } from 'react-native';
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import { BlurView } from 'expo-blur';
 import { BottomSheetMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
@@ -10,21 +10,36 @@ import { useState } from 'react';
 import WriteBtn from '@/components/Main/WriteBtn';
 import { SearchTextInput } from '@/ui/input/Search';
 import LocationSVG from '@/assets/icon/location.svg';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+} from 'react-native-reanimated';
 
 const StoryModal = ({ bottomSheetRef }: StoryModalState) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const buttonPosition = useSharedValue<number>(0);
+
+  const animatedButtonStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: buttonPosition.value }],
+  }));
 
   return (
     <>
-      <Location>
-        <LocationSVG />
-      </Location>
-      <WriteBtn />
+      <BottomAnimate position="left" style={animatedButtonStyle}>
+        <Location>
+          <LocationSVG />
+        </Location>
+      </BottomAnimate>
+      <BottomAnimate position="right" style={animatedButtonStyle}>
+        <WriteBtn />
+      </BottomAnimate>
       <BottomSheet
         ref={bottomSheetRef}
+        snapPoints={[670, 450, 150]}
         handleStyle={handleStyle}
         handleIndicatorStyle={handleIndicatorStyle}
-        snapPoints={[450, 450, 50]}
+        animatedPosition={buttonPosition}
         backgroundComponent={({ style }) => (
           <BlurViewStyled style={style} intensity={70} />
         )}
@@ -78,16 +93,27 @@ interface StoryModalState {
   bottomSheetRef: React.RefObject<BottomSheetMethods>;
 }
 
+const BottomAnimate = styled(Animated.View)<{ position: 'left' | 'right' }>`
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: 18px;
+  ${({ position }) => {
+    return position === 'left'
+      ? css`
+          left: 26px;
+        `
+      : css`
+          right: 26px;
+        `;
+  }}
+`;
+
 const Location = styled.TouchableOpacity`
   width: 36px;
   height: 36px;
   border-radius: 1000px;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  bottom: 50px;
-  left: 26px;
-  margin-bottom: 18px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.51);
 `;
@@ -112,7 +138,10 @@ const BlurViewStyled = styled(BlurView)`
   overflow: hidden;
   border-top-left-radius: 34px;
   border-top-right-radius: 34px;
-  background: ${Platform.OS === 'android' && 'rgba(0,0,0,0.5)'};
+  ${Platform.OS === 'android' &&
+  css`
+    background: rgba(0, 0, 0, 0.5);
+  `};
 `;
 
 const ModalContainer = styled(BottomSheetView)`
